@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Touchable } from 'react-native';
 
 import AppText from '../components/AppText';
 import colors from '../config/colors';
@@ -14,8 +14,15 @@ function SplashScreen(props) {
            </View>
            <View style={styles.footer}>
                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
-                <AppButton style={styles.request} title="I'm seeking help"></AppButton>
-                <AppButton style={styles.help} title="I want to help"></AppButton>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.request}>
+                        <AppText>I'm seeking help</AppText>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.help} color={colors.black}>
+                        <AppText>I want to help</AppText>
+                    </TouchableOpacity>
+                </View>
+
                 <Text style={styles.loginText}>Already have an account?</Text>
            </View>
        </View>
@@ -42,22 +49,29 @@ const styles = StyleSheet.create({
         color: colors.black,
         marginTop:'50%'
     },
+    buttonContainer:{
+        flex: 1,
+        justifyContent:'space-evenly',
+        alignItems: 'baseline'
+    },
     request: {
         width: '45%',
         height: 70,
         backgroundColor: colors.primary,
         marginTop: '40%',
+        marginLeft: '-90%',
         borderRadius:10,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'baseline',
     },
     help:{
         width: '45%',
         height: 70,
         backgroundColor: colors.black,
+        color: colors.white,
         borderRadius:10,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'baseline',
     },
     footer: {
         flex: 1,

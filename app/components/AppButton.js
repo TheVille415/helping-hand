@@ -2,13 +2,14 @@ import React from 'react';
 
 import { Button, Alert, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import colors from '../config/colors';
+import AppText from './AppText';
 
 //I set multiple properties to be able to customize my buttons
-function AppButton({title, onPress, color, ...otherProps}) {
+function AppButton({title, onPress, ...otherProps}) {
     return (
     //The button is the container, the text is the child
-    <TouchableOpacity {...otherProps} color={color} onPress={onPress}>
-        <Text style={styles.text}>{title}</Text>
+    <TouchableOpacity {...otherProps} onPress={onPress}>
+        <AppText style={styles.text}>{title}</AppText>
     </TouchableOpacity>
     );
 }
