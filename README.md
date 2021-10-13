@@ -3,3 +3,4 @@
 ## Serving the community in any way you want
 
 ### Who We Are - can insert emojis later? -
+- We started this journey with one goal: to help our communities.
