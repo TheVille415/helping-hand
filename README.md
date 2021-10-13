@@ -1,13 +1,5 @@
-# Helping hand
+# Hello! We are helping Hand -  <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 
-## A way to reduce friction and relive some pressure from poliice.
+## Serving the community in any way you want
 
-Filler.
-
-*Coming live to you soon*
-
-## how to run the app on local hardware until its live
-
-Filler.
-
-Test 1 2 leetcode808
+### Who We Are - can insert emojis later? -
