@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, ImageBackground } from 'react-native';
 import * as Yup from 'yup';
 
 import colors from '../config/colors';
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
 import AppText from '../components/AppText';
+import Circle from '../components/Circle';
 
 
 //These are all the rules for validating our form
@@ -17,9 +18,13 @@ function LoginScreen(props) {
 
     return (
        <View style={styles.container}>
-           <View style={styles.header}>
-            <AppText style={styles.heading}>Helping Hand</AppText>
-           </View>
+           <ImageBackground source={require('../assets/Login-Page.png')} resizeMode="cover" style={styles.header}>
+                <AppText style={styles.heading}>Helping Hand</AppText>
+                <View style={styles.circleContainer}> 
+                    <Circle style={styles.circles}/>
+                    <Circle style={styles.circles}/>
+                </View>
+            </ImageBackground>
            <View style={styles.footer}>
            <AppForm 
                 initialValues={{email: '', password: ''}}
@@ -73,10 +78,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    circleContainer:{
+        flexDirection: 'row',
+        marginLeft: '30%',
+        position: 'absolute',
+        top: 380,
+        elevation: 1000,
+    },
     footer: {
         flex:1,
         backgroundColor: colors.white,
-        borderRadius: 30,
         paddingVertical: 50,
         paddingHorizontal: 30,
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Touchable } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 import AppText from '../components/AppText';
 import colors from '../config/colors';
@@ -15,15 +15,13 @@ function SplashScreen(props) {
            <View style={styles.footer}>
                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.request}>
-                        <AppText>I'm seeking help</AppText>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.help} color={colors.black}>
-                        <AppText>I want to help</AppText>
-                    </TouchableOpacity>
+                    <AppButton title="I'm seeking help" style={styles.request}/>
+                    <AppButton title="I want to help" style={styles.help}/>
                 </View>
-
-                <Text style={styles.loginText}>Already have an account?</Text>
+                <View style={styles.accountContainer}>
+                    <Text style={styles.loginText}>Already have an account?</Text>
+                    <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
+                </View>
            </View>
        </View>
     );
@@ -45,33 +43,40 @@ const styles = StyleSheet.create({
         width: '90%',
         alignItems: 'center'
     },
+    accountContainer:{
+        flexDirection: 'row',
+        alignItems: 'baseline',
+        marginTop: '85%',
+        marginLeft: '-95%'
+    },
     loginText:{
-        color: colors.black,
-        marginTop:'50%'
+        fontSize: 16
     },
     buttonContainer:{
-        flex: 1,
-        justifyContent:'space-evenly',
-        alignItems: 'baseline'
+        width: '100%',
+        marginLeft: '-90%',
+        marginTop: '50%',
+        overflow: 'hidden',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'baseline',
     },
     request: {
         width: '45%',
         height: 70,
-        backgroundColor: colors.primary,
-        marginTop: '40%',
-        marginLeft: '-90%',
-        borderRadius:10,
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'baseline',
+        backgroundColor: colors.primary,
+        borderRadius:10,
     },
     help:{
         width: '45%',
         height: 70,
         backgroundColor: colors.black,
         color: colors.white,
-        borderRadius:10,
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'baseline',
+        borderRadius:10,
     },
     footer: {
         flex: 1,
