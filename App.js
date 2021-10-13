@@ -11,9 +11,13 @@ import Tabs from './navigation/bottomTab';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
+    // <SplashScreen />
+    // <SignupScreen />
+    // <LoginScreen />
+    <CertificationScreen />
+    // <NavigationContainer>
+    //   <Tabs />
+    // </NavigationContainer>
   );
 }
 
