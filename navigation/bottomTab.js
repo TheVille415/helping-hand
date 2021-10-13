@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import VolunteerHomeScreen from '../app/screens/VolunteerHomeScreen';
 import colors from '../app/config/colors';
 import AppText from '../app/components/AppText';
@@ -28,17 +28,22 @@ const Tabs = () => {
         > 
             <Tab.Screen name="Home" 
             component={VolunteerHomeScreen} 
-            options={{tabBarIcon: ({focused}) => {
-                <View>
-                    <Icon name="newspaper"/>
-                    <AppText>HOME</AppText>
-                </View>
-            },
+            options={{tabBarIcon: ({focused, color, size}) => (
+                <MaterialCommunityIcons name='newspaper' color={colors.medium} size={42} style={styles.icon} />
+            ),
             headerShown: false
             }}
             />
             <Tab.Screen name="News" component={VolunteerHomeScreen} options={{headerShown: false}}/>
-            <Tab.Screen name="Notifications" component={VolunteerHomeScreen} options={{headerShown: false}}/>
+            <Tab.Screen name="Notifications" 
+            component={VolunteerHomeScreen} 
+            options={{
+                tabBarIcon: ({focused, color, size}) => (
+                    <MaterialCommunityIcons name='bell-outline' color={colors.medium} size={42} style={styles.icon} />
+                ),
+                headerShown: false
+                }}
+                />
         </Tab.Navigator>
     );
 }
@@ -54,6 +59,10 @@ const styles = StyleSheet.create({
         shadowRadius: 3.5,
         elevation: 5
     },
+    icon:{
+        marginTop: 23
+    }
+
 })
 
 export default Tabs;

@@ -14,10 +14,10 @@ export default function App() {
     // <SplashScreen />
     // <SignupScreen />
     // <LoginScreen />
-    <CertificationScreen />
-    // <NavigationContainer>
-    //   <Tabs />
-    // </NavigationContainer>
+    // <CertificationScreen />
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 }
 
