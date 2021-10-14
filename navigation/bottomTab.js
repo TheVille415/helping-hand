@@ -5,8 +5,32 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import VolunteerHomeScreen from '../app/screens/VolunteerHomeScreen';
 import colors from '../app/config/colors';
 import AppText from '../app/components/AppText';
+import LoginScreen from '../app/screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
+
+const CustomProfileTabBarButton = ({ focused, children, onPress}) => (
+    <TouchableOpacity 
+    onPress={onPress}
+    style={{
+        top: -30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...styles.shadow
+    }}
+    >
+        <View
+            style={{
+                width: 70,
+                height: 70,
+                borderRadius: 35,
+                backgroundColor: colors.white
+            }}
+        >
+            {children}
+        </View>
+    </TouchableOpacity>
+);
 
 const Tabs = () => {
     return(
@@ -19,27 +43,46 @@ const Tabs = () => {
                     left: 20,
                     right: 20,
                     elevation: 0,
-                    backgroundColor: colors.white,
+                    backgroundColor: colors.medium,
                     borderRadius: 15,
                     height: 90,
                     ...styles.shadow
                 }
             }}
         > 
-            <Tab.Screen name="Home" 
+            <Tab.Screen name="News" 
             component={VolunteerHomeScreen} 
-            options={{tabBarIcon: ({focused, color, size}) => (
-                <MaterialCommunityIcons name='newspaper' color={colors.medium} size={42} style={styles.icon} />
+            options={{tabBarIcon: ({focused, size}) => (
+                <>
+                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={42} style={styles.icon} />
+                <Text
+                style={{marginTop: 10, color: colors.white}}
+                >NEWS</Text>
+                </>
             ),
             headerShown: false
             }}
             />
-            <Tab.Screen name="News" component={VolunteerHomeScreen} options={{headerShown: false}}/>
+            <Tab.Screen name="Home" component={LoginScreen} options={{
+                tabBarIcon:({focused}) => (
+                    <MaterialCommunityIcons name='account' color={ colors.medium } size={42}/>
+                ),
+                tabBarButton: (props) => (
+                    <CustomProfileTabBarButton {...props} />
+                )
+                
+            }}
+            />
             <Tab.Screen name="Notifications" 
             component={VolunteerHomeScreen} 
             options={{
-                tabBarIcon: ({focused, color, size}) => (
-                    <MaterialCommunityIcons name='bell-outline' color={colors.medium} size={42} style={styles.icon} />
+                tabBarIcon: ({focused, size}) => (
+                    <>
+                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={42} style={styles.icon} />
+                    <Text
+                    style={{marginTop: 10, color: colors.white}}
+                    >NOTIFICATIONS</Text>
+                    </>
                 ),
                 headerShown: false
                 }}

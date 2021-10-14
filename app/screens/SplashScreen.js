@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, Image } from 'react-native';
 
 import AppText from '../components/AppText';
 import colors from '../config/colors';
@@ -10,7 +10,8 @@ function SplashScreen(props) {
     return (
        <View style={styles.container}>
            <View style={styles.header}>
-                <AppText style={styles.text}>Welcome to Helping Hand </AppText>
+                <Image source={require('../assets/logo.png')} style={styles.logo}/>
+                <AppText style={styles.text}>serve the community in any way you want</AppText>
            </View>
            <View style={styles.footer}>
                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
@@ -37,6 +38,10 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    logo:{
+        width: 150,
+        height: 150
     },
     signupText: {
         fontSize: 35,
@@ -87,7 +92,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
     },
     text: {
-        fontSize: 30,
+        fontSize: 22,
+        width: '70%',
         color: colors.white
     },
 })

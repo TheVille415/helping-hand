@@ -20,12 +20,12 @@ function LoginScreen(props) {
        <View style={styles.container}>
            <ImageBackground source={require('../assets/Login-Page.png')} resizeMode="cover" style={styles.header}>
                 <AppText style={styles.heading}>Helping Hand</AppText>
-                <View style={styles.circleContainer}> 
-                    <Circle style={styles.circles}/>
-                    <Circle style={styles.circles}/>
-                </View>
             </ImageBackground>
            <View style={styles.footer}>
+           <View style={styles.circleContainer}> 
+                    <Circle style={styles.circle1}/>
+                    <Circle style={styles.circle2}/>
+            </View>
            <AppForm 
                 initialValues={{email: '', password: ''}}
                 onSubmit={(value) => console.log(value)}
@@ -81,9 +81,9 @@ const styles = StyleSheet.create({
     circleContainer:{
         flexDirection: 'row',
         marginLeft: '30%',
-        position: 'absolute',
-        top: 380,
-        elevation: 1000,
+        justifyContent: 'space-between',
+        position:'absolute',
+        top: -40
     },
     footer: {
         flex:1,
