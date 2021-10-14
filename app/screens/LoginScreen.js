@@ -18,7 +18,7 @@ function LoginScreen(props) {
 
     return (
        <View style={styles.container}>
-           <ImageBackground source={require('../assets/Login-Page.png')} resizeMode="cover" style={styles.header}>
+           <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
                 <AppText style={styles.heading}>Helping Hand</AppText>
             </ImageBackground>
            <View style={styles.footer}>

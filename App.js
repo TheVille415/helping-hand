@@ -1,23 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import Circle from './app/components/Circle';
-import CertificationScreen from './app/screens/CertificationScreen';
-import LoginScreen from './app/screens/LoginScreen'
-import SignupScreen from './app/screens/SignupScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './app/screens/SplashScreen';
-import VolunteerHomeScreen from './app/screens/VolunteerHomeScreen'
-import Tabs from './navigation/bottomTab';
+import SignupScreen from './app/screens/SignupScreen';
+import TabBarScreen from './navigation/TabBarScreen'
+import VolunteerHomeScreen from './app/screens/VolunteerHomeScreen';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
   return (
-    // <SplashScreen />
-    // <SignupScreen />
-    // <LoginScreen />
-    // <CertificationScreen />
     <NavigationContainer>
-      <Tabs />
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Splash"
+          component={SplashScreen}
+          options={{headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignupScreen}
+          options={{headerShown: false }}
+        />
+        <Stack.Screen
+          name="VHome"
+          component={TabBarScreen}
+          options={{headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
+export default MyStack;

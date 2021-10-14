@@ -5,28 +5,55 @@ import AppText from '../components/AppText';
 import colors from '../config/colors';
 import AppButton from '../components/AppButton';
 
-function SplashScreen(props) {
-
+const SplashScreen = ({ navigation }) => {
     return (
-       <View style={styles.container}>
-           <View style={styles.header}>
-                <Image source={require('../assets/logo.png')} style={styles.logo}/>
-                <AppText style={styles.text}>serve the community in any way you want</AppText>
-           </View>
-           <View style={styles.footer}>
-                <AppText style={styles.signupText}>How will you be signing up today?</AppText>
-                <View style={styles.buttonContainer}>
-                    <AppButton title="I'm seeking help" style={styles.request}/>
-                    <AppButton title="I want to help" style={styles.help}/>
-                </View>
-                <View style={styles.accountContainer}>
-                    <Text style={styles.loginText}>Already have an account?</Text>
-                    <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
-                </View>
-           </View>
-       </View>
+        <View style={styles.container}>
+            <View style={styles.header}>
+                 <Image source={require('../assets/logo.png')} style={styles.logo}/>
+                 <AppText style={styles.text}>serve the community in any way you want</AppText>
+            </View>
+            <View style={styles.footer}>
+                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
+                 <View style={styles.buttonContainer}>
+                     <AppButton 
+                     title="I'm seeking help" 
+                     style={styles.request}
+                     onPress={() => 
+                        navigation.navigate('SignUp')}
+                     />
+                     <AppButton title="I want to help" style={styles.help}/>
+                 </View>
+                 <View style={styles.accountContainer}>
+                     <Text style={styles.loginText}>Already have an account?</Text>
+                     <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
+                 </View>
+            </View>
+        </View>
     );
-}
+};
+
+// function SplashScreen(props) {
+
+//     return (
+//        <View style={styles.container}>
+//            <View style={styles.header}>
+//                 <Image source={require('../assets/logo.png')} style={styles.logo}/>
+//                 <AppText style={styles.text}>serve the community in any way you want</AppText>
+//            </View>
+//            <View style={styles.footer}>
+//                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
+//                 <View style={styles.buttonContainer}>
+//                     <AppButton title="I'm seeking help" style={styles.request}/>
+//                     <AppButton title="I want to help" style={styles.help}/>
+//                 </View>
+//                 <View style={styles.accountContainer}>
+//                     <Text style={styles.loginText}>Already have an account?</Text>
+//                     <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
+//                 </View>
+//            </View>
+//        </View>
+//     );
+// }
 
 const styles = StyleSheet.create({
     container: {
