@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
 })
 
 
-const SignupScreen = ({ navigation }) => {
+const UserSignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
              <AppText style={styles.heading}>Helping Hand</AppText>
@@ -130,4 +130,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default SignupScreen;
+export default UserSignupScreen;

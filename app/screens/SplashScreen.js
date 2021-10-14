@@ -23,7 +23,7 @@ const SplashScreen = ({ navigation }) => {
                         navigation.navigate('SignUp')}
                      />
                      <AppButton title="I want to help" style={styles.help} onPress={() => 
-                        navigation.navigate('SignUp')}/>
+                        navigation.navigate('VSignUp')}/>
                  </View>
                  <View style={styles.accountContainer}>
                      <Text style={styles.loginText}>Already have an account?</Text>
