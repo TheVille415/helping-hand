@@ -12,16 +12,31 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
+        <Stack.Screen
           name="Splash"
           component={SplashScreen}
-          options={{headerShown: false }}
+          options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="SignUp"
-          component={SignupScreen}
-          options={{headerShown: false }}
+        <Stack.Screen 
+          name="SignUp" 
+          component={SignupScreen} 
+          options={{ headerShown: false }}
         />
+        <Stack.Screen 
+          name="Certification" 
+          component={CertificationScreen} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="Volunteer" 
+          component={VolunteerHomeScreen} 
+          options={{ headerShown: false }}
+        />        
         <Stack.Screen
           name="VHome"
           component={TabBarScreen}
@@ -31,5 +46,3 @@ const MyStack = () => {
     </NavigationContainer>
   );
 };
-
-export default MyStack;

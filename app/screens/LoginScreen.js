@@ -6,6 +6,7 @@ import colors from '../config/colors';
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
 import AppText from '../components/AppText';
 import Circle from '../components/Circle';
+import AppButton from '../components/AppButton';
 
 
 //These are all the rules for validating our form
@@ -13,55 +14,56 @@ const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(4).label('Password')
 })
-
-function LoginScreen(props) {
-
+const LoginScreen = ({ navigation }) => {
     return (
-       <View style={styles.container}>
-           <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
-                <AppText style={styles.heading}>Helping Hand</AppText>
-            </ImageBackground>
-           <View style={styles.footer}>
-           <View style={styles.circleContainer}> 
-                    <Circle style={styles.circle1}/>
-                    <Circle style={styles.circle2}/>
+        <View style={styles.container}>
+            <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
+                 <AppText style={styles.heading}>Helping Hand</AppText>
+             </ImageBackground>
+            <View style={styles.footer}>
+            <View style={styles.circleContainer}> 
+                     <Circle style={styles.circle1}/>
+                     <Circle style={styles.circle2}/>
+             </View>
+            <AppForm 
+                 initialValues={{email: '', password: ''}}
+                 onSubmit={(value) => console.log(value)}
+                 validationSchema={validationSchema} 
+                 >
+                 {/* Email input field */}
+                 <AppFormField
+                     autoCapitalize='none'
+                     autoCorrect={false}
+                     icon='email'
+                     keyboardType='email-address'
+                     name='email'
+                     placeholder='email'
+                     textContentType='emailAddress'
+                     />
+                 {/* Password input field */}
+                 <AppFormField
+                 autoCapitalize='none'
+                 autoCorrect={false}
+                 icon='lock'
+                 name='password'
+                 placeholder='Password'
+                 secureTextEntry
+                 textContentType='password'
+                 />
+                 {/* Login Button */}
+                 {/* planning on changing Vhome once we have our client side up */}
+                 <AppButton style={styles.submit} title='Login' onPress={() => 
+                        navigation.navigate('VHome')}/>
+                 <View style={styles.signupContainer}>
+                     <AppText style={styles.signup}>Don't have an account?</AppText>
+                     <Button style={styles.signupButton} color={colors.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 
+                        navigation.navigate('SignUp')}/>
+                 </View>
+             </AppForm>
             </View>
-           <AppForm 
-                initialValues={{email: '', password: ''}}
-                onSubmit={(value) => console.log(value)}
-                validationSchema={validationSchema} 
-                >
-                {/* Email input field */}
-                <AppFormField
-                    autoCapitalize='none'
-                    autoCorrect={false}
-                    icon='email'
-                    keyboardType='email-address'
-                    name='email'
-                    placeholder='email'
-                    textContentType='emailAddress'
-                    />
-                {/* Password input field */}
-                <AppFormField
-                autoCapitalize='none'
-                autoCorrect={false}
-                icon='lock'
-                name='password'
-                placeholder='Password'
-                secureTextEntry
-                textContentType='password'
-                />
-                {/* Login Button */}
-                <SubmitButton style={styles.submit} title='Login' />
-                <View style={styles.signupContainer}>
-                    <AppText style={styles.signup}>Don't have an account?</AppText>
-                    <Button style={styles.signupButton} color={colors.primary} title="Create Account" accessibilityLabel="Create an account"/>
-                </View>
-            </AppForm>
-           </View>
-       </View>
-    );
-}
+        </View>
+     );
+ }
 
 const styles = StyleSheet.create({
     container: {

@@ -77,68 +77,6 @@ const SignupScreen = ({ navigation }) => {
         </View>
      );
 }
-// function SignupScreen(props) {
-
-//     return (
-//        <View style={styles.container}>
-//             <AppText style={styles.heading}>Helping Hand</AppText>
-//            <View style={styles.footer}>
-//            <AppForm 
-//                 initialValues={{email: '', password: ''}}
-//                 onSubmit={(value) => console.log(value)}
-//                 validationSchema={validationSchema} 
-//                 >
-//                 {/* Name input field */}
-//                 <AppFormField
-//                     autoCapitalize='none'
-//                     autoCorrect={false}
-//                     icon='account-tie'
-//                     keyboardType='default'
-//                     name='Name'
-//                     placeholder='Name'
-//                     textContentType='name'
-//                     />
-//                 {/* Email input field */}
-//                 <AppFormField
-//                     autoCapitalize='none'
-//                     autoCorrect={false}
-//                     icon='email'
-//                     keyboardType='email-address'
-//                     name='email'
-//                     placeholder='email'
-//                     textContentType='emailAddress'
-//                     />
-//                 {/* Phone number input field */}
-//                 <AppFormField
-//                     autoCapitalize='none'
-//                     autoCorrect={false}
-//                     icon='phone'
-//                     keyboardType='phone-pad'
-//                     name='phone'
-//                     placeholder='Phone'
-//                     textContentType='phonenumber'
-//                     />
-//                 {/* Password input field */}
-//                 <AppFormField
-//                 autoCapitalize='none'
-//                 autoCorrect={false}
-//                 icon='lock'
-//                 name='password'
-//                 placeholder='Password'
-//                 secureTextEntry
-//                 textContentType='password'
-//                 />
-//                 {/* Login Button */}
-//                 <SubmitButton style={styles.submit} title='Sign Up' />
-//                 <View style={styles.signupContainer}>
-//                     <AppText style={styles.signup}>Already have an account?</AppText>
-//                     <Button style={styles.signupButton} color={colors.primary} title="Login" accessibilityLabel="Create an account"/>
-//                 </View>
-//             </AppForm>
-//            </View>
-//        </View>
-//     );
-// }
 
 const styles = StyleSheet.create({
     container: {
