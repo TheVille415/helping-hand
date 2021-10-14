@@ -54,7 +54,7 @@ const Tabs = () => {
             component={VolunteerHomeScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
-                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={42} style={styles.icon} />
+                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={40} style={styles.icon} />
                 <Text
                 style={{marginTop: 10, color: colors.white}}
                 >NEWS</Text>
@@ -65,12 +65,13 @@ const Tabs = () => {
             />
             <Tab.Screen name="Home" component={LoginScreen} options={{
                 tabBarIcon:({focused}) => (
-                    <MaterialCommunityIcons name='account' color={ colors.medium } size={42}/>
+                    <MaterialCommunityIcons name='account' color={ colors.medium } size={40}/>
                 ),
                 tabBarButton: (props) => (
                     <CustomProfileTabBarButton {...props} />
-                )
-                
+                ),
+
+            headerShown: false
             }}
             />
             <Tab.Screen name="Notifications" 
@@ -78,7 +79,7 @@ const Tabs = () => {
             options={{
                 tabBarIcon: ({focused, size}) => (
                     <>
-                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={42} style={styles.icon} />
+                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={40} style={styles.icon} />
                     <Text
                     style={{marginTop: 10, color: colors.white}}
                     >NOTIFICATIONS</Text>
