@@ -15,13 +15,15 @@ const SplashScreen = ({ navigation }) => {
             <View style={styles.footer}>
                  <AppText style={styles.signupText}>How will you be signing up today?</AppText>
                  <View style={styles.buttonContainer}>
+                     {/* Need to make sure to distinguish 2 differnt names for user signup and Volunteer signup */}
                      <AppButton 
                      title="I'm seeking help" 
                      style={styles.request}
                      onPress={() => 
                         navigation.navigate('SignUp')}
                      />
-                     <AppButton title="I want to help" style={styles.help}/>
+                     <AppButton title="I want to help" style={styles.help} onPress={() => 
+                        navigation.navigate('SignUp')}/>
                  </View>
                  <View style={styles.accountContainer}>
                      <Text style={styles.loginText}>Already have an account?</Text>
@@ -32,28 +34,6 @@ const SplashScreen = ({ navigation }) => {
     );
 };
 
-// function SplashScreen(props) {
-
-//     return (
-//        <View style={styles.container}>
-//            <View style={styles.header}>
-//                 <Image source={require('../assets/logo.png')} style={styles.logo}/>
-//                 <AppText style={styles.text}>serve the community in any way you want</AppText>
-//            </View>
-//            <View style={styles.footer}>
-//                 <AppText style={styles.signupText}>How will you be signing up today?</AppText>
-//                 <View style={styles.buttonContainer}>
-//                     <AppButton title="I'm seeking help" style={styles.request}/>
-//                     <AppButton title="I want to help" style={styles.help}/>
-//                 </View>
-//                 <View style={styles.accountContainer}>
-//                     <Text style={styles.loginText}>Already have an account?</Text>
-//                     <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
-//                 </View>
-//            </View>
-//        </View>
-//     );
-// }
 
 const styles = StyleSheet.create({
     container: {

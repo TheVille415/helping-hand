@@ -70,7 +70,8 @@ const SignupScreen = ({ navigation }) => {
                         navigation.navigate('VHome')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Already have an account?</AppText>
-                     <Button style={styles.signupButton} color={colors.primary} title="Login" accessibilityLabel="Create an account"/>
+                     <Button style={styles.signupButton} color={colors.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
+                        navigation.navigate('Login')}/>
                  </View>
              </AppForm>
             </View>

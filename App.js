@@ -2,9 +2,10 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './app/screens/SplashScreen';
-import SignupScreen from './app/screens/SignupScreen';
+import SignupScreen from './app/screens/UserSignupScreen';
 import TabBarScreen from './navigation/TabBarScreen'
 import VolunteerHomeScreen from './app/screens/VolunteerHomeScreen';
+import CertificationScreen from './app/screens/CertificationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ const MyStack = () => {
         />
         <Stack.Screen 
           name="SignUp" 
-          component={SignupScreen} 
+          component={UserSignupScreen} 
           options={{ headerShown: false }}
         />
         <Stack.Screen 
@@ -40,6 +41,11 @@ const MyStack = () => {
         <Stack.Screen
           name="VHome"
           component={TabBarScreen}
+          options={{headerShown: false }}
+        />
+        <Stack.Screen
+          name="VSignUp"
+          component={VolunteerSignupScreen}
           options={{headerShown: false }}
         />
       </Stack.Navigator>
