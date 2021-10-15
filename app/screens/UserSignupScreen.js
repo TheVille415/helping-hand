@@ -53,7 +53,7 @@ const UserSignupScreen = ({ navigation }) => {
                      keyboardType='phone-pad'
                      name='phone'
                      placeholder='Phone'
-                     textContentType='phonenumber'
+                     textContentType='telephoneNumber'
                      />
                  {/* Password input field */}
                  <AppFormField
