@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Button, ImageBackground } from 'react-native';
 import * as Yup from 'yup';
-
 import colors from '../config/colors';
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
 import AppText from '../components/AppText';
 import Circle from '../components/Circle';
 import AppButton from '../components/AppButton';
-
 
 //These are all the rules for validating our form
 const validationSchema = Yup.object().shape({
@@ -15,6 +13,7 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(4).label('Password')
 })
 const LoginScreen = ({ navigation }) => {
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
@@ -53,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
                  {/* Login Button */}
                  {/* planning on changing Vhome once we have our client side up */}
                  <AppButton style={styles.submit} title='Login' onPress={() => 
-                        navigation.navigate('VHome')}/>
+                        navigation.navigate('Login')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Don't have an account?</AppText>
                      <Button style={styles.signupButton} color={colors.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 

@@ -6,6 +6,10 @@ import VolunteerHomeScreen from '../app/screens/VolunteerHomeScreen';
 import colors from '../app/config/colors';
 import AppText from '../app/components/AppText';
 import LoginScreen from '../app/screens/LoginScreen';
+import ProfileScreen from '../app/screens/ProfileScreen';
+import NewsScreen from '../app/screens/NewsScreen';
+import NotificationScreen from '../app/screens/NotificationScreen';
+import MessagesScreen from '../app/screens/MessagesScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,22 +54,35 @@ const Tabs = () => {
                 }
             }}
         > 
-            <Tab.Screen name="News" 
+        <Tab.Screen name="Home" 
             component={VolunteerHomeScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
-                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={40} style={styles.icon} />
+                <MaterialCommunityIcons name='home' color={focused ? colors.black : colors.white} size={30} style={styles.icon} />
                 <Text
-                style={{marginTop: 10, color: colors.white}}
+                style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                >HOME</Text>
+                </>
+            ),
+            headerShown: false
+            }}
+            />
+            <Tab.Screen name="News" 
+            component={NewsScreen} 
+            options={{tabBarIcon: ({focused, size}) => (
+                <>
+                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={30} style={styles.icon} />
+                <Text
+                style={{marginTop: 10, color: colors.white, fontSize: 12}}
                 >NEWS</Text>
                 </>
             ),
             headerShown: false
             }}
             />
-            <Tab.Screen name="Home" component={LoginScreen} options={{
+            <Tab.Screen name="Profile" component={ProfileScreen} options={{
                 tabBarIcon:({focused}) => (
-                    <MaterialCommunityIcons name='account' color={ colors.medium } size={40}/>
+                    <MaterialCommunityIcons name='account' color={ colors.medium } size={30}/>
                 ),
                 tabBarButton: (props) => (
                     <CustomProfileTabBarButton {...props} />
@@ -75,18 +92,31 @@ const Tabs = () => {
             }}
             />
             <Tab.Screen name="Notifications" 
-            component={VolunteerHomeScreen} 
+            component={NotificationScreen} 
             options={{
                 tabBarIcon: ({focused, size}) => (
                     <>
-                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={40} style={styles.icon} />
+                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={25} style={styles.icon} />
                     <Text
-                    style={{marginTop: 10, color: colors.white}}
-                    >NOTIFICATIONS</Text>
+                    style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                    >REQUESTS</Text>
                     </>
                 ),
                 headerShown: false
                 }}
+                />
+                <Tab.Screen name="Messages" 
+                    component={MessagesScreen} 
+                    options={{tabBarIcon: ({focused, size}) => (
+                        <>
+                        <MaterialCommunityIcons name='message-text-outline' color={focused ? colors.black : colors.white} size={25} style={styles.icon} />
+                        <Text
+                        style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                        >MESSAGES</Text>
+                        </>
+                    ),
+                    headerShown: false
+                    }}
                 />
         </Tab.Navigator>
     );

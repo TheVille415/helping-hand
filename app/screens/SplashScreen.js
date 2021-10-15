@@ -27,7 +27,8 @@ const SplashScreen = ({ navigation }) => {
                  </View>
                  <View style={styles.accountContainer}>
                      <Text style={styles.loginText}>Already have an account?</Text>
-                     <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login"/>
+                     <Button style={styles.loginButton} color={colors.primary} title="Login" accessibilityLabel="Login" onPress={() => 
+                        navigation.navigate('Login')}/>
                  </View>
             </View>
         </View>
