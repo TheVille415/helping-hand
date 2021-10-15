@@ -10,17 +10,29 @@ We designed Helping Hand to connect volunteers and professionals to people in th
 
 ## Getting Started
 
-### Using our app
+## Option 1
 
-First make sure you have installed the proper apps isntalled. To run out app make sure you have TestFlight installed on your iOS device. If you dont we have a link to it [here](https://apps.apple.com/us/app/testflight/id899247664).
+### Using our app with TestFlight
+
+First make sure you have installed the proper apps installed. To run out app make sure you have TestFlight installed on your iOS device. If you dont we have a link to it [here](https://apps.apple.com/us/app/testflight/id899247664).
 
 ### App Link
 
 To open our app in TestFlight use the link provided [here](https://i.postimg.cc/4420qsd5/Screen-Shot-2021-10-15-at-1-08-32-AM.png).
 
+## Option 2
+
+### Using our app with Expo
+
+First make sure you have Expo Go installed on your iOS device by clicking the link [here](https://apps.apple.com/us/app/expo-go/id982107779)
+
+### App Link
+
+If you want to run Helping Hand on Expo make sure to click the link [here](https://expo.dev/@merissab44/helping-hand). You should then be able to access the app by opening it on your iPhone.
+
 ### App Status
 
-Currently our app only has basic navigation and a static map feed as of 10/15/21. Our pages will soon be able to gather the data and save each profile wether it be a user or a volunteer.
+Currently our app only has basic navigation and a static map feed as of 10/15/21. We are publishign our app to TestFlight but that came with more hurdles that anticipated. For our next steps we are planning to make our pages gather the data and save each profile whether it be a user or a volunteer.
 
 ## Credits and Resources
 
