@@ -52,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
                  {/* Login Button */}
                  {/* planning on changing Vhome once we have our client side up */}
                  <AppButton style={styles.submit} title='Login' onPress={() => 
-                        navigation.navigate('Login')}/>
+                        navigation.navigate('VHome')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Don't have an account?</AppText>
                      <Button style={styles.signupButton} color={colors.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 

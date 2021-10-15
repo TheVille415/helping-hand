@@ -1,0 +1,16 @@
+{
+    "expo": {
+     "name": "Helping Hand",
+     "icon": "./app/assets/hh.png",
+     "version": "1.0.0",
+     "slug": "helping-hand",
+     "ios": {
+       "bundleIdentifier": "com.rissyrashoni.HelpingHand",
+       "buildNumber": "1.0.0"
+     },
+     "android": {
+       "package": "com.rissyrashoni.HelpingHand",
+       "versionCode": 1
+     }
+    }
+  }
