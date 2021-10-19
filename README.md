@@ -1,4 +1,10 @@
-# Helping Hand
+# Hello, Welcome to Helping Hand! -  <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
+
+## Serving the community in any way you want
+
+### Who We Are - can insert emojis later? -
+- We started this journey with one goal: to help our communities.
+
 
 ![Project cover image](https://i.postimg.cc/htgLYsy8/Helping-Hand-logos.jpg)
 
