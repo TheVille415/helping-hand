@@ -42,7 +42,7 @@ Currently our app only has basic navigation and a static map feed as of 10/15/21
 
 ## Credits and Resources
 
-1. This project was the idea of both Merissa Bridgeman and Ms. Kusun Crimmel
+1. This project was the idea of both Merissa Bridgeman and Ms. Kusum Crimmel
 2. Our team of Merissa Bridgeman, Aldrin Brillante, Brian Ross, and Jordan Torres
 3. *The React Native Website* [Here](https://reactnative.dev/) This guided us with help on functions and overall documentation.
 4. *Apple and Apple Developer* [Here](https://developer.apple.com/) Using this alongside TestFlight to get credentials and deploy a beta app.
