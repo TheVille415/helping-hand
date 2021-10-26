@@ -18,5 +18,4 @@ function AppFormField({ name, width, ...otherProps }) {
         </>
     );
 }
-
 export default AppFormField;

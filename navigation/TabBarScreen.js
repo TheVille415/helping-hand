@@ -87,6 +87,7 @@ const Tabs = () => {
                 tabBarButton: (props) => (
                     <CustomProfileTabBarButton {...props} />
                 ),
+                tabBarVisible: false,
 
             headerShown: false
             }}

@@ -13,7 +13,7 @@ export default {
         width: 70,
         height: 70,
         borderRadius: 50,
-        backgroundColor: colors.primary,
+        backgroundColor: colors.medium,
     }
 
 }

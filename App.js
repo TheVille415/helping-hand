@@ -59,7 +59,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
-          // options={{ headerShown: false }}
+          options={{ tabBarVisible: false }}
         />
         {/* <Stack.Screen 
           name="Volunteer" 

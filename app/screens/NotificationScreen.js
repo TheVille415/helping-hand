@@ -1,5 +1,10 @@
 import React from 'react';
 import { View, StyleSheet,Text } from 'react-native';
+// import Animated from 'react-native-reanimated';
+
+
+// bs = React.createRef();
+// fall = new Animated.Value(1);
 
 function NotificationScreen(props) {
 return (

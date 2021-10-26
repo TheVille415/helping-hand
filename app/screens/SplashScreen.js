@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: colors.primary,
         borderRadius:10,
+        color: colors.white
     },
     help:{
         width: '45%',
