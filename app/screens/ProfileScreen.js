@@ -109,7 +109,7 @@ const ProfileScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: colors.medium,
+    backgroundColor: colors.primary,
   },
   edit:{
     marginTop: 15,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.medium,
+    backgroundColor: colors.primary,
     color: colors.white
   },
   passwordText:{
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
 header:{
   flex: 1,
-  backgroundColor: colors.medium,
+  backgroundColor: colors.primary,
   justifyContent: 'center',
   alignItems: 'center', 
 },
@@ -178,12 +178,12 @@ profile:{
   borderRadius: 50,
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: colors.medium
+  backgroundColor: colors.primary
 },
 submit:{
   marginLeft: '70%',
   marginTop: 5,
-  backgroundColor: colors.medium,
+  backgroundColor: colors.primary,
   color: colors.white,
   alignItems: 'center',
   justifyContent: 'center',
