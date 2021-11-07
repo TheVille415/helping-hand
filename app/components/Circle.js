@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
-import colors from '../config/colors';
+import theme from '../config/theme';
 import defaultStyles from '../config/styles'
+import themeContext from '../config/themeContext';
 
-function Circle(style, {...otherProps}) {
+function Circle( {...otherProps}) {
+
+  const theme = useContext(themeContext);
+
 return (
   <View style={styles.container}>
-      <View style={[defaultStyles.circle, style]}{...otherProps}></View>
+      <View style={[styles.circle, {backgroundColor: theme.white}]}{...otherProps}></View>
   </View>
   );
 }
@@ -15,6 +19,11 @@ const styles = StyleSheet.create({
   container:{
       flex: 1
   },
+  circle: {
+    width: 70,
+    height: 70,
+    borderRadius: 50,
+}
 });
 
 export default Circle;

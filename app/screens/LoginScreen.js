@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View, Button, ImageBackground } from 'react-native';
 import * as Yup from 'yup';
-import colors from '../config/colors';
+import theme from '../config/theme';
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
 import AppText from '../components/AppText';
 import Circle from '../components/Circle';
 import AppButton from '../components/AppButton';
+import themeContext from '../config/themeContext';
 
 //These are all the rules for validating our form
 const validationSchema = Yup.object().shape({
@@ -14,12 +15,14 @@ const validationSchema = Yup.object().shape({
 })
 const LoginScreen = ({ navigation }) => {
 
+    const theme = useContext(themeContext);
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
                  <AppText style={styles.heading}>Helping Hand</AppText>
              </ImageBackground>
-            <View style={styles.footer}>
+            <View style={[styles.footer, {backgroundColor: theme.light}]}>
             <View style={styles.circleContainer}> 
                      <Circle style={styles.circle1}/>
                      <Circle style={styles.circle2}/>
@@ -51,11 +54,11 @@ const LoginScreen = ({ navigation }) => {
                  />
                  {/* Login Button */}
                  {/* planning on changing Vhome once we have our client side up */}
-                 <AppButton style={styles.submit} title='Login' onPress={() => 
+                 <AppButton style={[styles.submit, {backgroundColor: theme.primary, color: theme.white}]} title='Login' onPress={() => 
                         navigation.navigate('VHome')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Don't have an account?</AppText>
-                     <Button style={styles.signupButton} color={colors.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 
+                     <Button style={styles.signupButton} color={theme.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 
                         navigation.navigate('SignUp')}/>
                  </View>
              </AppForm>
@@ -67,15 +70,13 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.primary,
     },
     heading:{
-        color:colors.white,
+
         fontSize: 30
     },
     header: {
         flex: 1,
-        backgroundColor: colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -88,7 +89,6 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex:1,
-        backgroundColor: colors.white,
         paddingVertical: 50,
         paddingHorizontal: 30,
     },
@@ -98,14 +98,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent:'center', 
         alignItems:'center',
-        color: colors.white,
         marginTop: 60,
-        backgroundColor: colors.primary
     },
     signup:{
         marginTop: 40,
         marginLeft: 20,
-        color: colors.black
     },
     signupContainer:{
         flexDirection: 'row',

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Image, TouchableWithoutFeedback, Alert } from 'react-native';
-import colors from '../config/colors';
+import theme from '../config/theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as ImagePicker from 'expo-image-picker';
@@ -39,15 +39,15 @@ function ProfileImageInput({ imageUri, onChangeImage, ...otherprops }) {
 }
 return (
 <>
-  <View style={styles.container}>
+  <View style={[styles.container, {backgroundColor: '#808080'}]}>
     {!imageUri && (
-    <MaterialCommunityIcons color={colors.white} name="account" size={55} />
+    <MaterialCommunityIcons color={theme.color} name="account" size={55} />
     )}
     {imageUri && <Image source={{uri: imageUri}} style={styles.image} />}
   </View>
   <TouchableWithoutFeedback onPress={handlePress}>
         <View style={styles.changeImage} {...otherprops}>
-            <MaterialCommunityIcons color={colors.white} name="pencil" size={15} />
+            <MaterialCommunityIcons color={theme.color} name="pencil" size={15} />
         </View>
     </TouchableWithoutFeedback>
 
@@ -59,13 +59,12 @@ const styles = StyleSheet.create({
   container:{
     marginLeft: '35%',
     marginTop: '-95%',
-    backgroundColor: colors.grey,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
     height: 100,
     overflow: 'hidden',
-    width: 100
+    width:100
   },
   image:{
     width:'100%',

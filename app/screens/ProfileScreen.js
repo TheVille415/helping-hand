@@ -1,13 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import { View, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import React, {useState, useEffect, useContext} from 'react';
+import { View, StyleSheet, TouchableOpacity, Dimensions, Switch } from 'react-native';
 import AppText from '../components/AppText';
 import { AppForm, AppFormField } from '../components/forms';
 import ProfileImageInput from '../components/ProfileImageInput';
-import colors from '../config/colors';
+import { EventRegister } from 'react-native-event-listeners';
+import themeContext from '../config/themeContext';
 import AppButton from '../components/AppButton';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const ProfileScreen = ({ navigation }) => {
+
+
+  const theme = useContext(themeContext);
+
+  const[mode, setMode] = useState(false);
 
   const [imageUri, setImageUri] = useState();
     const requestPermission = async () => {
@@ -20,18 +26,18 @@ const ProfileScreen = ({ navigation }) => {
     },[])
  
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <View style={[styles.container, {backgroundColor: theme.background}]}>
+      <View style={[styles.header, {backgroundColor: theme.primary}]}>
 
       </View>
-      <View style={styles.footer}>
+      <View style={[styles.footer, {backgroundColor: theme.background}]}>
       <ProfileImageInput 
         imageUri={imageUri}
         onChangeImage={uri => setImageUri(uri)}
-        style={styles.profile}
+        style={[styles.profile, {backgroundColor: theme.primary}]}
       />
       <AppForm>
-        <AppText>First Name</AppText>
+        <AppText style={{color: theme.color}}>First Name</AppText>
         {/* FName input field */}
         <AppFormField
           autoCapitalize='none'
@@ -42,7 +48,7 @@ const ProfileScreen = ({ navigation }) => {
           textContentType='name'
           style={styles.input}
           />
-        <AppText>Last Name</AppText>
+        <AppText style={{color: theme.color}}>Last Name</AppText>
         {/* LName input field */}
         <AppFormField
           autoCapitalize='none'
@@ -53,7 +59,7 @@ const ProfileScreen = ({ navigation }) => {
           textContentType='name'
           style={styles.input}
           />
-          <AppText>Email</AppText>
+          <AppText style={{color: theme.color}}>Email</AppText>
           {/* Email input field */}
         <AppFormField
           autoCapitalize='none'
@@ -64,12 +70,12 @@ const ProfileScreen = ({ navigation }) => {
           textContentType='emailAddress'
           style={styles.input}
           />
-          <AppButton style={styles.submit} title='Save' />
+          <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Save' />
       </AppForm>
 
       <View
         style={{
-          borderBottomColor: colors.light,
+          borderBottomColor: theme.light,
           borderBottomWidth: 1,
           marginTop: 5
         }}
@@ -77,26 +83,27 @@ const ProfileScreen = ({ navigation }) => {
 
         <TouchableOpacity style={styles.edit} onPress={() => 
                         navigation.navigate('Certification')}>
-        <AppText>Certifications</AppText>
-        <Icon name='chevron-right' size={30} style={styles.chevron}/>
+        <AppText style={{color: theme.color}}>Certifications</AppText>
+        <Icon name='chevron-right' size={30} color={theme.color} style={styles.chevron}/>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.noncEdit}>
-        <AppText>Non-Certifications</AppText>
-        <Icon name='chevron-right' size={30} style={styles.nchevron}/>
+        <AppText style={{color: theme.color}}>Non-Certifications</AppText>
+        <Icon name='chevron-right' size={30} color={theme.color} style={styles.nchevron}/>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.password}>
-          <View style={styles.logoutView}>
-          <AppText style={styles.passwordText}>Change Password</AppText>
-          <Icon style={{ marginLeft: 20 }} name='lock' size={20} color={colors.white}/>
-          </View>
-        </TouchableOpacity>
+        <AppText style={{color: theme.color}}>Dark Mode</AppText>
+        <Switch value = {mode} onValueChange = {(value) => {
+            setMode(value)
+            EventRegister.emit('changeTheme', value);
+            }} />
 
-        <TouchableOpacity style={styles.logout}>
+        <TouchableOpacity style={[styles.logout, {backgroundColor: theme.background},
+    {borderColor: theme.error}]} onPress={() => 
+                        navigation.navigate('Login')}>
             <View style={styles.logoutView}>
-              <AppText style={styles.logoutText}>Logout</AppText>
-              <Icon style={{ marginLeft: 20 }}name='lock' size={20} color={colors.red}/>
+              <AppText style={[styles.logoutText, {color: theme.color}]}>Logout</AppText>
+              <Icon style={{ marginLeft: 20 }}name='lock' size={20} color={theme.error}/>
             </View>
         </TouchableOpacity>
       </View>
@@ -109,44 +116,42 @@ const ProfileScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: colors.primary,
   },
   edit:{
     marginTop: 15,
     flexDirection: 'row',
   },
+  input:{
+    width: '80%',
+    height: '50%'
+  },
   noncEdit:{
     marginTop: 15,
     flexDirection: 'row',
   },
-  password:{
-    marginLeft: '10%',
-    marginTop: 25,
-    width: 280,
-    height: 40,
-    borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.primary,
-    color: colors.white
-  },
-  passwordText:{
-    color: colors.white
-  },
+  // password:{
+  //   marginLeft: '10%',
+  //   marginTop: '5%',
+  //   width: '75%',
+  //   height: '30%',
+  //   borderRadius: 25,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   backgroundColor: theme.primary,
+  //   color: theme.color
+  // },
+  // passwordText:{
+  //   color: theme.color
+  // },
   logout:{
     marginLeft: '10%',
     marginTop: 25,
-    width: 280,
-    height: 40,
+    width: '75%',
+    height: '30%',
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    backgroundColor: colors.white,
-    borderColor: colors.red
-  },
-  logoutText:{
-    color: colors.red
   },
   logoutView:{
     flexDirection: 'row',
@@ -159,15 +164,13 @@ const styles = StyleSheet.create({
   },
 header:{
   flex: 1,
-  backgroundColor: colors.primary,
   justifyContent: 'center',
   alignItems: 'center', 
 },
 footer:{
   flex: 1,
-  backgroundColor: colors.white,
   borderRadius: 30,
-  paddingVertical: 300,
+  paddingVertical: '70%',
   paddingHorizontal: 30,
 },
 profile:{
@@ -178,13 +181,10 @@ profile:{
   borderRadius: 50,
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: colors.primary
 },
 submit:{
   marginLeft: '70%',
-  marginTop: 5,
-  backgroundColor: colors.primary,
-  color: colors.white,
+  marginTop: '1%',
   alignItems: 'center',
   justifyContent: 'center',
   width: 100,

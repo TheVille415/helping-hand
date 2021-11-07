@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import * as Yup from 'yup';
 
-import colors from '../config/colors';
+import theme from '../config/theme';
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import themeContext from '../config/themeContext';
 
 
 //These are all the rules for validating our form
@@ -16,6 +17,8 @@ const validationSchema = Yup.object().shape({
 
 
 const UserSignupScreen = ({ navigation }) => {
+
+    const theme = useContext(themeContext);
     return (
         <View style={styles.container}>
              <AppText style={styles.heading}>Helping Hand</AppText>
@@ -66,11 +69,11 @@ const UserSignupScreen = ({ navigation }) => {
                  textContentType='password'
                  />
                  {/* Login Button */}
-                 <AppButton style={styles.submit} title='Sign Up' onPress={() => 
+                 <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Sign Up' onPress={() => 
                         navigation.navigate('VHome')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Already have an account?</AppText>
-                     <Button style={styles.signupButton} color={colors.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
+                     <Button style={styles.signupButton} color={theme.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
                         navigation.navigate('Login')}/>
                  </View>
              </AppForm>
@@ -82,19 +85,19 @@ const UserSignupScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.white
+        backgroundColor: theme.backgroundColor
     },
     heading:{
         marginTop: 70,
         marginLeft: '25%',
         justifyContent: 'center',
         alignItems: 'center',
-        color:colors.black,
+        color:theme.text,
         fontSize: 30
     },
     header: {
         flex: 1,
-        backgroundColor: colors.primary,
+        backgroundColor: theme.primary,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
         marginVertical: '20%',
         alignItems: 'stretch',
         justifyContent: 'space-evenly',
-        backgroundColor: colors.white,
+        backgroundColor: theme.backgroundColor,
         borderRadius: 30,
         paddingVertical: 50,
         paddingHorizontal: 30,
@@ -114,14 +117,14 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent:'center', 
         alignItems:'center',
-        color: colors.white,
+        color: theme.text,
         marginTop: 60,
-        backgroundColor: colors.primary
+        backgroundColor: theme.primary
     },
     signup:{
         marginTop: 40,
         marginLeft: 20,
-        color: colors.black
+        color: theme.text
     },
     signupContainer:{
         flexDirection: 'row',

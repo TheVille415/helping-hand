@@ -1,19 +1,12 @@
 import { Platform } from 'react-native';
 
-import colors from './colors';
+import theme from './theme';
 
 export default {
-    colors: colors,
+    theme: theme,
     text: {
         fontSize: 18,
         fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
-        color: colors.dark
-    },
-    circle: {
-        width: 70,
-        height: 70,
-        borderRadius: 50,
-        backgroundColor: colors.medium,
     }
 
 }

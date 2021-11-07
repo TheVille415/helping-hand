@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import VolunteerHomeScreen from '../app/screens/VolunteerHomeScreen';
-import colors from '../app/config/colors';
+import themeContext from '../app/config/themeContext';
+import theme from '../app/config/theme';
 import AppText from '../app/components/AppText';
 import LoginScreen from '../app/screens/LoginScreen';
 import ProfileScreen from '../app/screens/ProfileScreen';
@@ -28,7 +29,7 @@ const CustomProfileTabBarButton = ({ focused, children, onPress}) => (
                 width: 70,
                 height: 70,
                 borderRadius: 35,
-                backgroundColor: colors.white
+                backgroundColor: theme.background
             }}
         >
             {children}
@@ -37,6 +38,8 @@ const CustomProfileTabBarButton = ({ focused, children, onPress}) => (
 );
 
 const Tabs = () => {
+
+    const theme = useContext(themeContext); 
     return(
         <Tab.Navigator
             screenOptions={{
@@ -47,7 +50,7 @@ const Tabs = () => {
                     left: 20,
                     right: 20,
                     elevation: 0,
-                    backgroundColor: colors.primary,
+                    backgroundColor: theme.primary,
                     borderRadius: 15,
                     height: 90,
                     ...styles.shadow
@@ -58,9 +61,9 @@ const Tabs = () => {
             component={VolunteerHomeScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
-                <MaterialCommunityIcons name='home' color={focused ? colors.black : colors.white} size={30} style={styles.icon} />
+                <MaterialCommunityIcons name='home' color={theme.background} size={30} style={styles.icon} />
                 <Text
-                style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                style={{marginTop: 10, color: theme.white, fontSize: 12}}
                 >HOME</Text>
                 </>
             ),
@@ -71,9 +74,9 @@ const Tabs = () => {
             component={NewsScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
-                <MaterialCommunityIcons name='newspaper' color={focused ? colors.black : colors.white} size={30} style={styles.icon} />
+                <MaterialCommunityIcons name='newspaper' color={theme.background} size={30} style={styles.icon} />
                 <Text
-                style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                style={{marginTop: 10, color: theme.white, fontSize: 12}}
                 >NEWS</Text>
                 </>
             ),
@@ -82,7 +85,7 @@ const Tabs = () => {
             />
             <Tab.Screen name="Profile" component={ProfileScreen} options={{
                 tabBarIcon:({focused}) => (
-                    <MaterialCommunityIcons name='account' color={ colors.medium } size={30}/>
+                    <MaterialCommunityIcons name='account' color={ theme.color } size={30}/>
                 ),
                 tabBarButton: (props) => (
                     <CustomProfileTabBarButton {...props} />
@@ -97,9 +100,9 @@ const Tabs = () => {
             options={{
                 tabBarIcon: ({focused, size}) => (
                     <>
-                    <MaterialCommunityIcons name='bell-outline' color={focused ? colors.black : colors.white} size={25} style={styles.icon} />
+                    <MaterialCommunityIcons name='bell-outline' color={theme.background} size={25} style={styles.icon} />
                     <Text
-                    style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                    style={{marginTop: 10, color: theme.white, fontSize: 12}}
                     >REQUESTS</Text>
                     </>
                 ),
@@ -110,9 +113,9 @@ const Tabs = () => {
                     component={MessagesScreen} 
                     options={{tabBarIcon: ({focused, size}) => (
                         <>
-                        <MaterialCommunityIcons name='message-text-outline' color={focused ? colors.black : colors.white} size={25} style={styles.icon} />
+                        <MaterialCommunityIcons name='message-text-outline' color={theme.background} size={25} style={styles.icon} />
                         <Text
-                        style={{marginTop: 10, color: colors.white, fontSize: 12}}
+                        style={{marginTop: 10, color: theme.white, fontSize: 12}}
                         >MESSAGES</Text>
                         </>
                     ),

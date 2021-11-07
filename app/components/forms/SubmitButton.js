@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import AppText from '../AppText';
-import colors from '../../config/colors';
+import theme from '../../config/theme';
 
 function SubmitButton({ title, backgroundColor, ...otherProps}) {
 
@@ -16,7 +16,7 @@ function SubmitButton({ title, backgroundColor, ...otherProps}) {
 
 const styles = StyleSheet.create({
     text:{
-        color: colors.white
+        color: theme.text
     }
 })
 

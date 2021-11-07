@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Text } from 'react-native';
-import colors from '../config/colors';
+import theme from '../config/theme';
 import AppButton from '../components/AppButton';
 import { SubmitButton } from '../components/forms';
 import AppText from '../components/AppText';
 
+import themeContext from '../config/themeContext';
+
 function CertificationScreen(props) {
+
+  const theme = useContext(themeContext);
 return (
   <View style={styles.container}>
       <ImageBackground source={require('../assets/volunteer-page.png')} style={styles.backgroundImage}>
         <AppText style={styles.header}>CERTIFICATIONS</AppText>
         <AppText style={styles.text}>Please select all categories you are <Text style={{fontWeight: 'bold'}}>CERTIFIED</Text> to assist in</AppText>
         <View>
-        <AppButton style={styles.leftSide} title='Social Work'/>
-        <AppButton style={styles.rightSide} title='Health'/>
-        <AppButton style={styles.leftSide} title='Protection'/>
-        <AppButton style={styles.rightSide} title='Mental Illness'/>
-        <AppButton style={styles.leftSide} title='Law'/>
-        <AppButton style={styles.rightSide} title='Other'/>
+        <AppButton style={[styles.leftSide, {backgroundColor: theme.primary, color: theme.white}]} title='Social Work'/>
+        <AppButton style={[styles.rightSide,{backgroundColor: theme.primary}]} title='Health'/>
+        <AppButton style={[styles.leftSide, {backgroundColor: theme.primary}]} title='Protection'/>
+        <AppButton style={[styles.rightSide,{backgroundColor: theme.primary}]} title='Mental Illness'/>
+        <AppButton style={[styles.leftSide, {backgroundColor: theme.primary}]} title='Law'/>
+        <AppButton style={[styles.rightSide, {backgroundColor: theme.primary}]} title='Other'/>
         </View>
       </ImageBackground>
   </View>
@@ -50,10 +54,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent:'center', 
     alignItems:'center',
-    color: colors.white,
     marginTop: 60,
     marginLeft: 20,
-    backgroundColor: colors.primary
 },
 rightSide:{
   height: 46,
@@ -61,10 +63,8 @@ rightSide:{
   borderRadius: 50,
   justifyContent:'center', 
   alignItems:'center',
-  color: colors.white,
   marginTop: 60,
   marginLeft: '57%',
-  backgroundColor: colors.primary
 },
 
 });
