@@ -7,98 +7,65 @@ import AppText from '../components/AppText';
 import Circle from '../components/Circle';
 import AppButton from '../components/AppButton';
 import themeContext from '../config/themeContext';
-import {
-    GoogleSignin,
-    GoogleSigninButton,
-    statusCodes,
-    } from 'react-native-google-signin';
-
-
+//test commit
 
 //These are all the rules for validating our form
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(4).label('Password')
 })
-
 const LoginScreen = ({ navigation }) => {
 
-    const [loggedIn, setloggedIn] = useState(false);
-const [userInfo, setuserInfo] = useState([]);
-
-_signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const {accessToken, idToken} = await GoogleSignin.signIn();
-      setloggedIn(true);
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-        alert('Cancel');
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        alert('Signin in progress');
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        alert('PLAY_SERVICES_NOT_AVAILABLE');
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
-
-  useEffect(() => {
-    GoogleSignin.configure({
-      scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
-      webClientId:
-        '418977770929-g9ou7r9eva1u78a3anassxxxxxxx.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-      offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-    });
-  }, []);
-
-  signOut = async () => {
-    try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
-      setloggedIn(false);
-      setuserInfo([]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const theme = useContext(themeContext);
 
     return (
-        <>
-          <StatusBar barStyle="dark-content" />
-          <SafeAreaView>
-            <ScrollView
-              contentInsetAdjustmentBehavior="automatic"
-              style={styles.scrollView}>
-              <Header />
-    
-              <View style={styles.body}>
-                <View style={styles.sectionContainer}>
-                  <GoogleSigninButton
-                    style={{width: 192, height: 48}}
-                    size={GoogleSigninButton.Size.Wide}
-                    color={GoogleSigninButton.Color.Dark}
-                    onPress={this._signIn}
-                  />
-                </View>
-                <View style={styles.buttonContainer}>
-                  {!loggedIn && <Text>You are currently logged out</Text>}
-                  {loggedIn && (
-                    <Button
-                      onPress={this.signOut}
-                      title="LogOut"
-                      color="red"></Button>
-                  )}
-                </View>
-              </View>
-            </ScrollView>
-          </SafeAreaView>
-        </>
-      );;
+        <View style={styles.container}>
+            <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
+                 <AppText style={styles.heading}>Helping Hand</AppText>
+             </ImageBackground>
+            <View style={[styles.footer, {backgroundColor: theme.light}]}>
+            <View style={styles.circleContainer}> 
+                     <Circle style={styles.circle1}/>
+                     <Circle style={styles.circle2}/>
+             </View>
+            <AppForm 
+                 initialValues={{email: '', password: ''}}
+                 onSubmit={(value) => console.log(value)}
+                 validationSchema={validationSchema} 
+                 >
+                 {/* Email input field */}
+                 <AppFormField
+                     autoCapitalize='none'
+                     autoCorrect={false}
+                     icon='email'
+                     keyboardType='email-address'
+                     name='email'
+                     placeholder='email'
+                     textContentType='emailAddress'
+                     />
+                 {/* Password input field */}
+                 <AppFormField
+                 autoCapitalize='none'
+                 autoCorrect={false}
+                 icon='lock'
+                 name='password'
+                 placeholder='Password'
+                 secureTextEntry
+                 textContentType='password'
+                 />
+                 {/* Login Button */}
+                 {/* planning on changing Vhome once we have our client side up */}
+                 <AppButton style={[styles.submit, {backgroundColor: theme.primary, color: theme.white}]} title='Login' onPress={() => 
+                        navigation.navigate('VHome')}/>
+                 <View style={styles.signupContainer}>
+                     <AppText style={styles.signup}>Don't have an account?</AppText>
+                     <Button style={styles.signupButton} color={theme.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 
+                        navigation.navigate('SignUp')}/>
+                 </View>
+             </AppForm>
+            </View>
+        </View>
+     );
  }
 
 const styles = StyleSheet.create({
