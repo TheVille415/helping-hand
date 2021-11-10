@@ -12,7 +12,7 @@ function AppTextInput({icon, width = '100%', ...otherProps}) {
     const theme = useContext(themeContext)
 
     return (
-        <View style={[styles.container,{backgroundColor: theme.white}, {width}]}>
+        <View style={[styles.container,{backgroundColor: theme.light}, {width}]}>
             { icon && <MaterialCommunityIcons 
                 name={icon}
                 size={20}

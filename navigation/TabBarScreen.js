@@ -21,15 +21,16 @@ const CustomProfileTabBarButton = ({ focused, children, onPress}) => (
         top: -30,
         justifyContent: 'center',
         alignItems: 'center',
-        ...styles.shadow
     }}
     >
         <View
             style={{
-                width: 70,
-                height: 70,
+                width: 50,
+                height: 50,
                 borderRadius: 35,
-                backgroundColor: theme.background
+                backgroundColor: theme.light,
+                alignContent: 'center',
+                justifyContent: 'center'
             }}
         >
             {children}
@@ -85,7 +86,7 @@ const Tabs = () => {
             />
             <Tab.Screen name="Profile" component={ProfileScreen} options={{
                 tabBarIcon:({focused}) => (
-                    <MaterialCommunityIcons name='account' color={ theme.color } size={30}/>
+                    <MaterialCommunityIcons name='account' color={ theme.color } size={30} style={styles.icon}/>
                 ),
                 tabBarButton: (props) => (
                     <CustomProfileTabBarButton {...props} />

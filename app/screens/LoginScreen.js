@@ -20,9 +20,9 @@ const LoginScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/login-page.png')} resizeMode="cover" style={styles.header}>
-                 <AppText style={styles.heading}>Helping Hand</AppText>
+                 <AppText style={[styles.heading, {color: theme.white}]}>Helping Hand</AppText>
              </ImageBackground>
-            <View style={[styles.footer, {backgroundColor: theme.light}]}>
+            <View style={[styles.footer, {backgroundColor: theme.whited}]}>
             <View style={styles.circleContainer}> 
                      <Circle style={styles.circle1}/>
                      <Circle style={styles.circle2}/>

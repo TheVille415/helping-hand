@@ -11,11 +11,11 @@ const SplashScreen = ({ navigation }) => {
     
     return (
         <View style={styles.container}>
-            <View style={[styles.header, {backgroundColor: theme.primary}]}>
+            <View style={[styles.header, {backgroundColor: theme.primary}, {borderBottomEndRadius: 200}]}>
                  <Image source={require('../assets/logo.png')} style={styles.logo}/>
                  <AppText style={[styles.text, {color: theme.white}]}>serve the community in any way you want</AppText>
             </View>
-            <View style={[styles.footer, {borderRadius: 30}]}>
+            <View style={styles.footer}>
                  <AppText style={styles.signupText}>How will you be signing up today?</AppText>
                  <View style={styles.buttonContainer}>
                      {/* Need to make sure to distinguish 2 differnt names for user signup and Volunteer signup */}
@@ -42,7 +42,6 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.primary,
     },
     header: {
         flex: 1,
@@ -95,6 +94,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 50,
         paddingHorizontal: 30,
+        borderRadius: 50
     },
     text: {
         fontSize: 22,

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {Children, useContext} from 'react';
 
 import { Button, Alert, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import themeContext from '../config/themeContext';

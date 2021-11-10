@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as ImagePicker from 'expo-image-picker';
 
-function ProfileImageInput({ imageUri, onChangeImage, ...otherprops }) {
+function Profile({ imageUri, onChangeImage, ...otherprops }) {
 
   useEffect(() =>{
     requestPermission();
@@ -43,16 +43,10 @@ return (
 <>
   <View style={[styles.container, {backgroundColor: theme.light}]}>
     {!imageUri && (
-    <MaterialCommunityIcons color={theme.color} name="account" size={55} />
+    <MaterialCommunityIcons color={theme.color} name="account" size={30} />
     )}
     {imageUri && <Image source={{uri: imageUri}} style={styles.image} />}
   </View>
-  <TouchableWithoutFeedback onPress={handlePress}>
-        <View style={styles.changeImage} {...otherprops}>
-            <MaterialCommunityIcons color={theme.color} name="pencil" size={15} />
-        </View>
-    </TouchableWithoutFeedback>
-
 </>
   );
 }
@@ -64,9 +58,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    height: 100,
+    height: 50,
     overflow: 'hidden',
-    width:100
+    width:50
   },
   image:{
     width:'100%',
@@ -74,4 +68,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProfileImageInput;
+export default Profile;
