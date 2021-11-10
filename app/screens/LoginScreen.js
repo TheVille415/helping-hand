@@ -7,6 +7,7 @@ import AppText from '../components/AppText';
 import Circle from '../components/Circle';
 import AppButton from '../components/AppButton';
 import themeContext from '../config/themeContext';
+//test commit
 
 //These are all the rules for validating our form
 const validationSchema = Yup.object().shape({
