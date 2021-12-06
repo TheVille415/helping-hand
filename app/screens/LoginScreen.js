@@ -30,7 +30,8 @@ const LoginScreen = ({ navigation }) => {
              </View>
             <AppForm 
                  initialValues={{email: '', password: ''}}
-                 onSubmit={(value) => console.log(value)}
+                 onSubmit={(value) => //send this to the database 
+                                        console.log(value)}
                  validationSchema={validationSchema} 
                  >
                  {/* Email input field */}

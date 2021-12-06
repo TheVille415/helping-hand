@@ -43,6 +43,11 @@ const MyStack = () => {
       <NavigationContainer> 
         <Stack.Navigator>
           <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="Splash"
             component={SplashScreen}
             options={{ headerShown: false }}
