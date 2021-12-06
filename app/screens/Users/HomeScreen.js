@@ -18,9 +18,9 @@ const HomeScreen = ({ navigation }) => {
                 <AppText style={[styles.urgentText, {color: theme.white}]}>Urgent</AppText>
             </TouchableOpacity> 
             {/* NON-URGENT BUTTON */}
-            <TouchableOpacity style={[styles.nonUrgent, {backgroundColor: theme.primary}]}>
+            {/* <TouchableOpacity style={[styles.nonUrgent, {backgroundColor: theme.primary}]}>
             <AppText style={[styles.nonurgentText, {color: theme.white}]}>Non Urgent</AppText>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
         </>
     );
