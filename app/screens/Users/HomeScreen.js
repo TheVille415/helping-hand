@@ -14,11 +14,13 @@ const HomeScreen = ({ navigation }) => {
             {/* URGENT BUTTON */}
             <View style={styles.buttonRow}>
                 <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.emergency}]} onPress={() => 
-                          navigation.navigate('Login')}>
-                    <AppText style={[styles.urgencyText, {color: theme.white}]}>Urgent</AppText>
+                          navigation.navigate('Description')}>
+                    <AppText style={[styles.urgencyText, {color: theme.white}]} onPress={() => 
+                          navigation.navigate('Description')}>Urgent</AppText>
                 </TouchableOpacity> 
                 {/* NON-URGENT BUTTON */}
-                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]}>
+                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]} onPress={() => 
+                          navigation.navigate('Description')}>
                 <AppText style={[styles.urgencyText, {color: theme.white}]}>Non-Urgent</AppText>
                 </TouchableOpacity>
             </View>

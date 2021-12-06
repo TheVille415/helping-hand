@@ -17,6 +17,7 @@ import ProfileScreen from './app/screens/Volunteers/ProfileScreen';
 import NewsScreen from './app/screens/NewsScreen';
 import NotificationScreen from './app/screens/NotificationScreen';
 import SettingsScreen from './app/screens/SettingsScreen';
+import DescriptionScreen from './app/screens/Users/DescriptionScreen';
 import HomeScreen from './app/screens/Users/HomeScreen';
 import UserLoginScreen from './app/screens/Users/UserLoginScreen';
 import NonUrgentScreen from './app/screens/Users/NonUrgentScreen';
@@ -41,11 +42,6 @@ const MyStack = () => {
     <themeContext.Provider value={mode === true ? theme.dark : theme.light}>
       <NavigationContainer> 
         <Stack.Navigator>
-        <Stack.Screen
-            name="NUScreen"
-            component={NonUrgentScreen}
-            options={{ headerShown: false }}
-          />
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -96,7 +92,21 @@ const MyStack = () => {
             component={UserLoginScreen}
             options={{headerShown: false }}
           />
-
+          <Stack.Screen
+            name="Description"
+            component={DescriptionScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
+        <Stack.Screen
+            name="NUScreen"
+            component={NonUrgentScreen}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="VSignUp"
             component={VolunteerSignupScreen}

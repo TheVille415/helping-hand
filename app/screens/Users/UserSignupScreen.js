@@ -68,13 +68,13 @@ const UserSignupScreen = ({ navigation }) => {
                  secureTextEntry
                  textContentType='password'
                  />
-                 {/* Login Button */}
+                 {/* Sign up Button */}
                  <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Sign Up' onPress={() => 
                         navigation.navigate('Home')}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Already have an account?</AppText>
                      <Button style={styles.signupButton} color={theme.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
-                        navigation.navigate('Login')}/>
+                        navigation.navigate('Home')}/>
                  </View>
              </AppForm>
             </View>

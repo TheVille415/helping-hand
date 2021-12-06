@@ -24,6 +24,22 @@ const NonUrgentScreen = ({ navigation }) => {
                 <Icon name="medical-bag" size={35} color={'white'} style={{textAlign: 'center'}}/>
                 </TouchableOpacity>
             </View>
+            <View style={styles.buttonRow2}>
+                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]} onPress={() => 
+                          navigation.navigate('Login')}>
+                    <AppText style={[styles.urgencyText, {color: theme.white}]}>Psychiatric</AppText>
+                    <Icon name="head-snowflake" size={45} color={'white'} style={{textAlign: 'center'}}/>
+                </TouchableOpacity> 
+                {/* NON-URGENT BUTTON */}
+                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]}>
+                <AppText style={[styles.urgencyText, {color: theme.white}]}>Safety</AppText>
+                <Icon name="knife-military" size={40} color={'white'} style={{textAlign: 'center'}}/>
+                </TouchableOpacity>
+            </View>
+            <TouchableOpacity style={[styles.other, {backgroundColor: theme.primary}]}>
+                <AppText style={[styles.urgencyText, {color: theme.white}]}>Other</AppText>
+                <Icon name="dots-horizontal-circle-outline" size={40} color={'white'} style={{textAlign: 'center'}}/>
+                </TouchableOpacity>
         </View>
 
     );
@@ -47,6 +63,10 @@ const styles = StyleSheet.create({
   buttonRow:{
     flexDirection: 'row',
   },
+  buttonRow2:{
+    flexDirection: 'row',
+    marginTop: '-15%'
+  },
   urgency:{
       width: '35%',
       height: 100,
@@ -55,6 +75,14 @@ const styles = StyleSheet.create({
       marginTop: '30%',
       marginRight: '2%',
   },
+  other:{
+    width: '35%',
+    height: 100,
+    borderRadius: 10,
+    marginLeft: '30%',
+    marginTop: '15%',
+    marginRight: '2%',
+},
   urgencyText:{
       fontSize: 26,
       textAlign: 'center'
