@@ -28,7 +28,7 @@ const DescriptionScreen = ({ navigation }) => {
                 style={styles.input}
                 onChangeText={onChangeText}
                 value={text}
-                placeholder="start typing here..."
+                placeholder="start typing here.."
                 keyboardType="default"
             />
             <AppButton title="Submit" style={[styles.submit, {backgroundColor: theme.primary}]} onPress={() => 
