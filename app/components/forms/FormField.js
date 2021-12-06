@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik'
 import AppTextInput from '../TextInput';
 import ErrorMessage from './ErrorMessage';
+import theme from '../../config/theme';
 
 function AppFormField({ name, width, ...otherProps }) {
 

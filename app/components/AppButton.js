@@ -2,7 +2,6 @@ import React, {Children, useContext} from 'react';
 
 import { Button, Alert, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import themeContext from '../config/themeContext';
-import theme from '../config/theme';
 import AppText from './AppText';
 
 //I set multiple properties to be able to customize my buttons
@@ -13,7 +12,7 @@ function AppButton({title, onPress, color, ...otherProps}) {
     return (
     //The button is the container, the text is the child
     <TouchableOpacity {...otherProps} onPress={onPress}>
-        <AppText style={[styles.text, {color: theme.white}]}>{title}</AppText>
+        <AppText style={[styles.text, {color:theme.white}]}>{title}</AppText>
     </TouchableOpacity>
     );
 }

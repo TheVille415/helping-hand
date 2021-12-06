@@ -1,13 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { View, StyleSheet, TouchableOpacity, Dimensions, Switch } from 'react-native';
 import AppText from '../components/AppText';
-import { AppForm, AppFormField } from '../components/forms';
-import ProfileImageInput from '../components/ProfileImageInput';
 import { EventRegister } from 'react-native-event-listeners';
 import themeContext from '../config/themeContext';
-import AppButton from '../components/AppButton';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import Profile from '../components/Profile';
 
 const SettingsScreen = ({ navigation }) => {
 
@@ -28,49 +24,66 @@ const SettingsScreen = ({ navigation }) => {
  
   return (
 <>
-    <View style={styles.container}>
+    {/* Settings Header */}
+    <View style={[styles.container, {backgroundColor: theme.background}]}>
         <AppText style={[styles.header, {color: theme.color}]}>Settings</AppText>
-        <AppText style={{color:theme.color}}>Account</AppText>
+        {/* Account section */}
+        <AppText style={[styles.account, {color:theme.color}]}>Account</AppText>
         <View style={styles.accountRow}>
-            <Profile 
-                imageUri={imageUri}
-                style={[styles.profile, {backgroundColor: theme.black}]}
-                />
-            <View style={styles.nameC}>
-            <AppText>Merissa B</AppText>
-            <AppText>Personal Info</AppText>
+            <View style={[styles.profileAccount, {backgroundColor: theme.grey}]}>
+              <Icon name='account' size={40}/>
             </View>
-            <TouchableOpacity>
+            <View style={styles.nameC}>
+            <AppText style={[styles.nameText, {color: theme.color}]}>Merissa B</AppText>
+            <AppText style={[styles.subText, {color:theme.grey}]}>Personal Info</AppText>
+            </View>
+            <TouchableOpacity onPress={() => 
+                          navigation.navigate('Profile')}>
                 <Icon name='chevron-right' color={theme.black} size={25}/>
             </TouchableOpacity>
         </View>
-
-    </View>
-    <View style={[styles.container, {backgroundColor: theme.background}]}>
-      <View
-        style={{
-          borderBottomColor: theme.light,
-          borderBottomWidth: 1,
-          marginTop: 5
-        }}
-      />
-        <View style={styles.darkModeToggle}>
-        <AppText style={{color: theme.color}}>Dark Mode</AppText>
-        <Switch value = {mode} onValueChange = {(value) => {
-            setMode(value)
-            EventRegister.emit('changeTheme', value);
-            }} />
-
-        </View>
-
-        <TouchableOpacity style={[styles.logout, {backgroundColor: theme.background},
-    {borderColor: theme.error}]} onPress={() => 
-                        navigation.navigate('Login')}>
-            <View style={styles.logoutView}>
-              <AppText style={[styles.logoutText, {color: theme.color}]}>Logout</AppText>
-              <Icon style={{ marginLeft: 20 }}name='lock' size={20} color={theme.error}/>
+        {/* Preferences Section */}
+        <AppText style={[styles.account, {color:theme.color}]}>Preferences</AppText>
+        <View style={styles.accountRow}>
+            <View style={[styles.profileAccount, {backgroundColor: theme.green}]}>
+              <Icon name='bell' size={40}/>
             </View>
-        </TouchableOpacity>
+            <View style={styles.nameC}>
+            <AppText style={[styles.notificationText, {color: theme.color}]}>Notifications</AppText>
+            </View>
+            <TouchableOpacity style={{marginTop: '5%'}}>
+                <Icon name='chevron-right' color={theme.black} size={25} />
+            </TouchableOpacity>
+        </View>
+    </View>
+
+    {/* DARK MODE SECTION */}
+    <View style={[styles.container, {backgroundColor: theme.background}]}>
+      <View style={styles.darkModeRow}>
+        <View style={[styles.darkMode, {backgroundColor: theme.green}]}>
+          <Icon name='account' size={40}/>
+        </View>
+          <View style={styles.darkModeToggle}>
+            <AppText style={[styles.darkModeText, {color: theme.color}]}>Dark Mode</AppText>
+          <Switch value = {mode} onValueChange = {(value) => {
+              setMode(value)
+              EventRegister.emit('changeTheme', value);
+              }} />
+
+          </View>
+      </View>
+
+      {/* LOGOUT BUTTON */}
+        <View style={styles.logout}>
+          <TouchableOpacity style={[styles.logout, {backgroundColor: theme.background},
+            {borderColor: theme.error}]} onPress={() => 
+                          navigation.navigate('Login')}>
+          <View style={styles.logoutView}>
+            <AppText style={[styles.logoutText, {color: theme.color}]}>Logout</AppText>
+              <Icon style={{ marginLeft: 20 }}name='logout' size={20} color={theme.error}/>
+          </View>
+          </TouchableOpacity>
+        </View>
       </View>
 
     </>
@@ -93,17 +106,35 @@ const styles = StyleSheet.create({
     marginTop: 15,
     flexDirection: 'row',
   },
+  account:{
+    marginLeft: '10%',
+    marginTop: '10%',
+    fontSize: 22
+  },
  accountRow:{
     flex: 1,
     flexDirection: 'row',
     justifyContent:'flex-end',
-    marginLeft: '15%',
-    alignItems: 'center'
+    marginLeft: '10%',
+    marginTop: '7%',
+    paddingRight: '15%'
  },
+ darkModeRow:{
+  flex: 1,
+  flexDirection: 'row',
+  justifyContent:'space-evenly',
+  marginLeft: '10%',
+  marginTop: '5%',
+  paddingRight: '15%'
+},
  darkModeToggle:{
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '5%'
+    marginTop: '5%',
+    marginLeft: '20%',
+ },
+ darkModeText:{
+  marginRight: '40%'
  },
  nameC:{
     flex: 1,
@@ -111,16 +142,27 @@ const styles = StyleSheet.create({
  },
   logout:{
     marginLeft: '10%',
-    marginTop: 25,
+    marginTop: '-50%',
+    marginBottom: '30%',
     width: '75%',
     height: '30%',
-    borderRadius: 25,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems:'center',
+    borderRadius: 25,
     borderWidth: 1,
   },
   logoutView:{
     flexDirection: 'row',
+  },
+  nameText:{
+    fontSize: 20
+  },
+  notificationText:{
+    fontSize: 20,
+    marginTop: '5%'
+  },
+  subText:{
+    fontSize: 14
   },
   chevron:{
     marginLeft: '60%'
@@ -134,30 +176,22 @@ header:{
  textAlign: 'center',
  fontSize: 25
 },
-footer:{
-  flex: 1,
-  borderRadius: 30,
-  paddingVertical: '70%',
-  paddingHorizontal: 30,
-},
-profile:{
-  marginLeft: '53%',
-  marginTop: '-8%',
-  width: 35,
-  height: 35,
+profileAccount:{
+  width: 50,
+  height: 50,
   borderRadius: 50,
   alignItems: 'center',
   justifyContent: 'center',
+  marginRight: '10%'
 },
-submit:{
-  marginLeft: '70%',
-  marginTop: '1%',
+darkMode:{
+  width: 50,
+  height: 50,
+  borderRadius: 50,
   alignItems: 'center',
-  justifyContent: 'center',
-  width: 100,
-  height: 30,
-  borderRadius: 10,
+  marginLeft: '9%'
 }
+
 });
 
 export default SettingsScreen;

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import themeContext from '../config/themeContext';
 
 function NewsScreen(props) {
+
+  const theme = useContext(themeContext);
 return (
-  <View style={styles.container}>
-      <Text style={styles.text}>NEWS</Text>
+  <View style={[styles.container, {backgroundColor: theme.background}]}>
+      <Text style={[styles.text, {color:theme.color}]}>NEWS</Text>
   </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{},
+  container:{
+    flex: 1
+  },
   text:{
     display: 'flex',
     marginTop: '50%',

@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, Image } from 'react-native';
 import * as Yup from 'yup';
-
-import theme from '../config/theme';
-import {AppForm, AppFormField, SubmitButton} from '../components/forms'
-import AppText from '../components/AppText';
-import AppButton from '../components/AppButton';
-import themeContext from '../config/themeContext';
+import themeContext from '../../config/themeContext';
+import {AppForm, AppFormField, SubmitButton} from '../../components/forms'
+import AppText from '../../components/AppText';
+import AppButton from '../../components/AppButton';
 
 
 //These are all the rules for validating our form
@@ -16,12 +14,14 @@ const validationSchema = Yup.object().shape({
 })
 
 
-const UserSignupScreen = ({ navigation }) => {
+const VolunteerSignupScreen = ({ navigation }) => {
 
     const theme = useContext(themeContext);
+
     return (
-        <View style={styles.container}>
-             <AppText style={styles.heading}>Helping Hand</AppText>
+        <View style={[styles.container, {backgroundColor: theme.primary}]}>
+             <AppText style={[styles.heading, {color: theme.white}]}>Helping Hand</AppText>
+             <Image source={require('../../assets/logo.png')} style={styles.logo}/>
             <View style={styles.footer}>
             <AppForm 
                  initialValues={{email: '', password: ''}}
@@ -47,6 +47,7 @@ const UserSignupScreen = ({ navigation }) => {
                      name='email'
                      placeholder='email'
                      textContentType='emailAddress'
+                     style={styles.field}
                      />
                  {/* Phone number input field */}
                  <AppFormField
@@ -57,6 +58,7 @@ const UserSignupScreen = ({ navigation }) => {
                      name='phone'
                      placeholder='Phone'
                      textContentType='telephoneNumber'
+                     style={styles.field}
                      />
                  {/* Password input field */}
                  <AppFormField
@@ -67,13 +69,14 @@ const UserSignupScreen = ({ navigation }) => {
                  placeholder='Password'
                  secureTextEntry
                  textContentType='password'
+                 style={styles.field}
                  />
                  {/* Login Button */}
-                 <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Sign Up' onPress={() => 
-                        navigation.navigate('VHome')}/>
+                 <AppButton style={[styles.submit, {backgroundColor: theme.black}]} title='Sign Up' onPress={() => 
+                        navigation.navigate('Certification')}/>
                  <View style={styles.signupContainer}>
-                     <AppText style={styles.signup}>Already have an account?</AppText>
-                     <Button style={styles.signupButton} color={theme.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
+                     <AppText style={[styles.signup, {color: theme.white}]}>Already have an account?</AppText>
+                     <Button style={styles.signupButton} color={theme.white} title="Login" accessibilityLabel="Login to your account" onPress={() => 
                         navigation.navigate('Login')}/>
                  </View>
              </AppForm>
@@ -85,31 +88,28 @@ const UserSignupScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.backgroundColor
     },
     heading:{
         marginTop: 70,
         marginLeft: '25%',
         justifyContent: 'center',
         alignItems: 'center',
-        color:theme.text,
         fontSize: 30
-    },
-    header: {
-        flex: 1,
-        backgroundColor: theme.primary,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     footer: {
         flex:1,
-        marginVertical: '20%',
+        marginVertical: '5%',
         alignItems: 'stretch',
         justifyContent: 'space-evenly',
-        backgroundColor: theme.backgroundColor,
         borderRadius: 30,
-        paddingVertical: 50,
+        paddingVertical: 20,
         paddingHorizontal: 30,
+    },
+    logo:{
+        flexDirection: 'row',
+        marginLeft: '30%',
+        width: 120,
+        height: 120,
     },
     submit:{
         height: 50,
@@ -117,14 +117,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent:'center', 
         alignItems:'center',
-        color: theme.text,
         marginTop: 60,
-        backgroundColor: theme.primary
     },
     signup:{
         marginTop: 40,
         marginLeft: 20,
-        color: theme.text
     },
     signupContainer:{
         flexDirection: 'row',
@@ -133,4 +130,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default UserSignupScreen;
+export default VolunteerSignupScreen;

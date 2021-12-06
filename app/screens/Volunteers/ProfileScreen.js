@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { View, StyleSheet, TouchableOpacity, Dimensions, Switch } from 'react-native';
-import AppText from '../components/AppText';
-import { AppForm, AppFormField } from '../components/forms';
-import ProfileImageInput from '../components/ProfileImageInput';
+import AppText from '../../components/AppText';
+import { AppForm, AppFormField } from '../../components/forms';
+import ProfileImageInput from '../../components/ProfileImageInput';
 import { EventRegister } from 'react-native-event-listeners';
-import themeContext from '../config/themeContext';
-import AppButton from '../components/AppButton';
+import themeContext from '../../config/themeContext';
+import AppButton from '../../components/AppButton';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const ProfileScreen = ({ navigation }) => {
