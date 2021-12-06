@@ -11,13 +11,15 @@ import SplashScreen from './app/screens/SplashScreen';
 import UserSignupScreen from './app/screens/Users/UserSignupScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import VolunteerSignupScreen from './app/screens/Volunteers/VolunteerSignupScreen';
-import TabBarScreen from './navigation/TabBarScreen'
+import TabBarScreen from './navigation/TabBarScreen';
 import CertificationScreen from './app/screens/Volunteers/CertificationScreen';
 import ProfileScreen from './app/screens/Volunteers/ProfileScreen';
 import NewsScreen from './app/screens/NewsScreen';
 import NotificationScreen from './app/screens/NotificationScreen';
 import SettingsScreen from './app/screens/SettingsScreen';
 import HomeScreen from './app/screens/Users/HomeScreen';
+import UserLoginScreen from './app/screens/Users/UserLoginScreen';
+import NonUrgentScreen from './app/screens/Users/NonUrgentScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,8 +42,8 @@ const MyStack = () => {
       <NavigationContainer> 
         <Stack.Navigator>
         <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="NUScreen"
+            component={NonUrgentScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
@@ -89,6 +91,12 @@ const MyStack = () => {
             component={TabBarScreen}
             options={{headerShown: false }}
           />
+          <Stack.Screen 
+            name="UserLogin"
+            component={UserLoginScreen}
+            options={{headerShown: false }}
+          />
+
           <Stack.Screen
             name="VSignUp"
             component={VolunteerSignupScreen}

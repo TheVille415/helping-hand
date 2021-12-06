@@ -2,24 +2,26 @@ import React, {useContext} from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import AppText from '../../components/AppText';
 import themeContext from '../../config/themeContext';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-
-const HomeScreen = ({ navigation }) => {
+const NonUrgentScreen = ({ navigation }) => {
     const theme = useContext(themeContext)
     
     return (
         <View style={[styles.container, {backgroundColor: theme.background}]}>
-            <AppText style={[styles.title, {color: theme.color}]}> How urgently do you need help?</AppText>
+            <AppText style={[styles.title, {color: theme.color}]}> What's going on today? </AppText>
             <AppText style={[styles.emergencyText, {color: theme.emergency}]}>Please note if you have an emergency please contact 911</AppText>
             {/* URGENT BUTTON */}
             <View style={styles.buttonRow}>
-                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.emergency}]} onPress={() => 
+                <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]} onPress={() => 
                           navigation.navigate('Login')}>
-                    <AppText style={[styles.urgencyText, {color: theme.white}]}>Urgent</AppText>
+                    <AppText style={[styles.urgencyText, {color: theme.white}]}>Domestic</AppText>
+                    <Icon name="home-city" size={35} color={'white'} style={{textAlign: 'center'}}/>
                 </TouchableOpacity> 
                 {/* NON-URGENT BUTTON */}
                 <TouchableOpacity style={[styles.urgency, {backgroundColor: theme.primary}]}>
-                <AppText style={[styles.urgencyText, {color: theme.white}]}>Non-Urgent</AppText>
+                <AppText style={[styles.urgencyText, {color: theme.white}]}>Medical</AppText>
+                <Icon name="medical-bag" size={35} color={'white'} style={{textAlign: 'center'}}/>
                 </TouchableOpacity>
             </View>
         </View>
@@ -50,8 +52,6 @@ const styles = StyleSheet.create({
       height: 100,
       borderRadius: 10,
       marginLeft: '9%',
-      alignContent:'center',
-      justifyContent: 'center',
       marginTop: '30%',
       marginRight: '2%',
   },
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default NonUrgentScreen;

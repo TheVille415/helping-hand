@@ -1,43 +1,37 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, ImageBackground } from 'react-native';
 import * as Yup from 'yup';
-
-import theme from '../../config/theme';
 import {AppForm, AppFormField, SubmitButton} from '../../components/forms'
 import AppText from '../../components/AppText';
+import Circle from '../../components/Circle';
 import AppButton from '../../components/AppButton';
 import themeContext from '../../config/themeContext';
-
+//test commit
 
 //These are all the rules for validating our form
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(4).label('Password')
 })
-
-
-const UserSignupScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
 
     const theme = useContext(themeContext);
+
     return (
         <View style={styles.container}>
-             <AppText style={styles.heading}>Helping Hand</AppText>
-            <View style={styles.footer}>
+            <ImageBackground source={require('../../assets/login-page.png')} resizeMode="cover" style={styles.header}>
+                 <AppText style={[styles.heading, {color: theme.white}]}>Helping Hand</AppText>
+             </ImageBackground>
+            <View style={[styles.footer, {backgroundColor: theme.whited}]}>
+            <View style={styles.circleContainer}> 
+                     <Circle style={styles.circle1}/>
+                     <Circle style={styles.circle2}/>
+             </View>
             <AppForm 
                  initialValues={{email: '', password: ''}}
                  onSubmit={(value) => console.log(value)}
                  validationSchema={validationSchema} 
                  >
-                 {/* Name input field */}
-                 <AppFormField
-                     autoCapitalize='none'
-                     autoCorrect={false}
-                     icon='account-tie'
-                     keyboardType='default'
-                     name='Name'
-                     placeholder='Name'
-                     textContentType='name'
-                     />
                  {/* Email input field */}
                  <AppFormField
                      autoCapitalize='none'
@@ -47,16 +41,6 @@ const UserSignupScreen = ({ navigation }) => {
                      name='email'
                      placeholder='email'
                      textContentType='emailAddress'
-                     />
-                 {/* Phone number input field */}
-                 <AppFormField
-                     autoCapitalize='none'
-                     autoCorrect={false}
-                     icon='phone'
-                     keyboardType='phone-pad'
-                     name='phone'
-                     placeholder='Phone'
-                     textContentType='telephoneNumber'
                      />
                  {/* Password input field */}
                  <AppFormField
@@ -69,45 +53,42 @@ const UserSignupScreen = ({ navigation }) => {
                  textContentType='password'
                  />
                  {/* Login Button */}
-                 <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Sign Up' onPress={() => 
+                 {/* planning on changing Vhome once we have our client side up */}
+                 <AppButton style={[styles.submit, {backgroundColor: theme.primary}, {color: theme.white}]} title='Login' onPress={() => 
                         navigation.navigate('Home')}/>
                  <View style={styles.signupContainer}>
-                     <AppText style={styles.signup}>Already have an account?</AppText>
-                     <Button style={styles.signupButton} color={theme.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
-                        navigation.navigate('Login')}/>
+                     <AppText style={styles.signup}>Don't have an account?</AppText>
+                     <Button style={styles.signupButton} color={theme.primary} title="Create Account" accessibilityLabel="Create an account" onPress={() => 
+                        navigation.navigate('SignUp')}/>
                  </View>
              </AppForm>
             </View>
         </View>
      );
-}
+ }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.backgroundColor
     },
     heading:{
-        marginTop: 70,
-        marginLeft: '25%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color:theme.text,
+
         fontSize: 30
     },
     header: {
         flex: 1,
-        backgroundColor: theme.primary,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    circleContainer:{
+        flexDirection: 'row',
+        marginLeft: '30%',
+        justifyContent: 'space-between',
+        position:'absolute',
+        top: -40
+    },
     footer: {
         flex:1,
-        marginVertical: '20%',
-        alignItems: 'stretch',
-        justifyContent: 'space-evenly',
-        backgroundColor: theme.backgroundColor,
-        borderRadius: 30,
         paddingVertical: 50,
         paddingHorizontal: 30,
     },
@@ -117,20 +98,17 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent:'center', 
         alignItems:'center',
-        color: theme.text,
         marginTop: 60,
-        backgroundColor: theme.primary
     },
     signup:{
         marginTop: 40,
         marginLeft: 20,
-        color: theme.text
     },
     signupContainer:{
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'baseline',
     },
 })
 
-export default UserSignupScreen;
+export default LoginScreen;

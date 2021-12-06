@@ -2,13 +2,9 @@ import React, { useContext } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import VolunteerHomeScreen from '../app/screens/Volunteers/VolunteerHomeScreen';
 import themeContext from '../app/config/themeContext';
 import theme from '../app/config/theme';
-import ProfileScreen from '../app/screens/Volunteers/ProfileScreen';
 import HomeScreen from '../app/screens/Users/HomeScreen';
-import UserSignupScreen from '../app/screens/Users/UserSignupScreen';
-import NewsScreen from '../app/screens/NewsScreen';
 import NotificationScreen from '../app/screens/NotificationScreen';
 import SettingsScreen from '../app/screens/SettingsScreen';
 
@@ -54,7 +50,7 @@ const Tabs = () => {
             }}
         > 
         <Tab.Screen name="Home" 
-            component={VolunteerHomeScreen} 
+            component={HomeScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
                 <MaterialCommunityIcons name='home' color={theme.background} size={30} style={styles.icon} />
@@ -66,8 +62,8 @@ const Tabs = () => {
             headerShown: false
             }}
             />
-            <Tab.Screen name="News" 
-            component={NewsScreen} 
+            <Tab.Screen name="Settings" 
+            component={SettingsScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
                 <MaterialCommunityIcons name='newspaper' color={theme.background} size={30} style={styles.iconN} />
@@ -79,7 +75,7 @@ const Tabs = () => {
             headerShown: false
             }}
             />
-            <Tab.Screen name="Profile" component={SettingsScreen} options={{
+            <Tab.Screen name="Settings" component={NotificationScreen} options={{
                 tabBarIcon:({focused}) => (
                     <>
                     <MaterialCommunityIcons name='account-cog' color={ theme.background } size={30} style={styles.iconS}/>
@@ -96,23 +92,10 @@ const Tabs = () => {
             headerShown: false
             }}
             />
-            <Tab.Screen name="Notifications" 
-            component={NotificationScreen} 
-            options={{
-                tabBarIcon: ({focused, size}) => (
-                    <>
-                    <MaterialCommunityIcons name='bell-outline' color={theme.background} size={25} style={styles.icon} />
-                    <Text
-                    style={{marginTop: 10, color: theme.background, fontSize: 12}}
-                    >REQUESTS</Text>
-                    </>
-                ),
-                headerShown: false
-                }}
-                />
         </Tab.Navigator>
     );
 }
+
 const styles = StyleSheet.create({
     shadow:{
         display: 'flex',
