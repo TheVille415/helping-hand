@@ -15,18 +15,7 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(4).label('Password')
 })
 
-const handleSignup = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSignup = () => {
-        auth
-            .createUserWithEmailAndPassword(email, password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log(user.email)})
-            .catch(error => alert(error.message))}
-}
 
 const UserSignupScreen = ({ navigation }) => {
 
