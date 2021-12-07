@@ -26,6 +26,7 @@ Then make sure you have Expo and Xcode installed on your local device.
 If you don't have either installed you can install them by clicking these links:
 
 Expo Download [here](https://docs.expo.dev/get-started/installation/)
+
 Xcode Downlaod [here](https://developer.apple.com/xcode/)
 
 ### Running the app
@@ -48,6 +49,6 @@ Our next steps are to work on the further implementation of our Firebase backend
 
 1. This project was the idea of both Merissa Bridgeman and Ms. Kusum Crimmel
 2. Our team of Merissa Bridgeman, Aldrin Brillante, Brian Ross, and Jordan Torres
-3. *Expo* [Here](https://expo.dev/) This is how we actively test and work on our app
+3. *The Expo Website* [Here](https://expo.dev/) This is how we actively test and work on our app
 4. *Apple and Apple Developer* [Here](https://developer.apple.com/) Allowing us to run simulations of iPhones via Expo
 5. *The React Native Website* [Here](https://reactnative.dev/) This guided us with help on functions and overall documentation
