@@ -11,7 +11,7 @@
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.4",
-    "expo": "^1.0.0",
+    "expo": "^41.0.1",
     "expo-app-auth": "~10.2.2",
     "expo-image-picker": "^10.2.3",
     "expo-permissions": "~12.1.1",

@@ -19,13 +19,19 @@ return (
         backgroundColor: '#fff',
         image: <Image source={require('../assets/neighbor.png')} style={styles.image}/>,
         title: 'Request Help',
-        subtitle: 'Fill out a short description of whats happening and our volunteers will respond within minutes',
+        subtitle: 'By filling out our short form, get matched with professional volunteers to help with any requests you may have',
       },
       {
         backgroundColor: '#fff',
         image: <Image source={require('../assets/neighbor.png')} style={styles.image}/>,
-        title: 'Onboarding',
-        subtitle: 'Done with React Native Onboarding Swiper',
+        title: 'Response in minutes',
+        subtitle: 'Volunteers have 2 minutes to respond to your request so you will receive help ASAP',
+      },
+      {
+        backgroundColor: '#fff',
+        image: <Image source={require('../assets/neighbor.png')} style={styles.image}/>,
+        title: 'Rate your experience',
+        subtitle: 'Help make this app a safe space by holding our volunteers accountable, after each incident you will have the option to rate your volunteer',
       },
 
     ]}
