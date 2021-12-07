@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, View, Button, ImageBackground } from 'react-native';
 import * as Yup from 'yup';
 import theme from '../config/theme';
@@ -7,6 +7,8 @@ import AppText from '../components/AppText';
 import Circle from '../components/Circle';
 import AppButton from '../components/AppButton';
 import themeContext from '../config/themeContext';
+import { authAsync } from 'expo-app-auth';
+
 //test commit
 
 //These are all the rules for validating our form
@@ -14,6 +16,49 @@ const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(4).label('Password')
 })
+
+
+
+
+
+// adding firebase auth 
+
+
+const handleSignup = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSignup = () => {
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log(user.email)})
+            .catch(error => alert(error.message))}
+}
+
+const handleLogin = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate("Home")
+            }
+        })
+        return () => unsubscribe()
+    }, [])
+
+    const handleLogin = () => {
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log('logged in with:', user.email)})
+            .catch(error => alert(error.message))}
+}
+
 const LoginScreen = ({ navigation }) => {
 
     const theme = useContext(themeContext);
@@ -31,7 +76,7 @@ const LoginScreen = ({ navigation }) => {
             <AppForm 
                  initialValues={{email: '', password: ''}}
                  onSubmit={(value) => //send this to the database 
-                                        console.log(value)}
+                                        handleSignup}
                  validationSchema={validationSchema} 
                  >
                  {/* Email input field */}
