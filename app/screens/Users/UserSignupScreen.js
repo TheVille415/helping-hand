@@ -15,6 +15,18 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(4).label('Password')
 })
 
+const handleSignup = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSignup = () => {
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log(user.email)})
+            .catch(error => alert(error.message))}
+}
 
 const UserSignupScreen = ({ navigation }) => {
 
@@ -70,7 +82,7 @@ const UserSignupScreen = ({ navigation }) => {
                  />
                  {/* Sign up Button */}
                  <AppButton style={[styles.submit, {backgroundColor: theme.primary}]} title='Sign Up' onPress={() => 
-                        navigation.navigate('Home')}/>
+                        handleSignup}/>
                  <View style={styles.signupContainer}>
                      <AppText style={styles.signup}>Already have an account?</AppText>
                      <Button style={styles.signupButton} color={theme.primary} title="Login" accessibilityLabel="Login to your account" onPress={() => 
