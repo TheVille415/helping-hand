@@ -23,7 +23,7 @@ const SettingsScreen = ({ navigation }) => {
               <Icon name='account' size={40}/>
             </View>
             <View style={styles.nameC}>
-            <AppText style={[styles.nameText, {color: theme.color}]}>Merissa B</AppText>
+            <AppText style={[styles.nameText, {color: theme.color}]}>Brian R</AppText>
             <AppText style={[styles.subText, {color:theme.grey}]}>Personal Info</AppText>
             </View>
             <TouchableOpacity onPress={() => 
