@@ -38,6 +38,7 @@ After that's done to start the app run
 ```
 $ npm start
 ```
+The will open the app in a new tab or window with Expo, this is when you will click on 'Run on iOS simulator'
 
 ### App Status
 
