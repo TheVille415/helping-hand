@@ -10,7 +10,22 @@ import themeContext from '../config/themeContext';
 import { authAsync } from 'expo-app-auth';
 import { useNavigation } from '@react-navigation/core'
 import { auth } from '../../firebase'
+import { createUserWithEmailAndPassword } from '../../firebase';
+require("firebase/auth");
 console.log(auth)
+
+// TODO: Replace the following with your app's Firebase project configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAaNlut6o6bNTLpyLXOVnPGhxdEXz3_ljg",
+    authDomain: "helping-hand-a7e07.firebaseapp.com",
+    projectId: "helping-hand-a7e07",
+    storageBucket: "helping-hand-a7e07.appspot.com",
+    messagingSenderId: "569751188411",
+    appId: "1:569751188411:web:da06d43d3bfa036726ca9e",
+    measurementId: "G-R8PPKT1P8P"
+  };
+
+
 
 //test commit
 
@@ -51,14 +66,14 @@ const LoginScreen = () => {
     }, [])
   
     const handleSignUp = () => {
-      auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(userCredentials => {
-          const user = userCredentials.user;
-          console.log('Registered with:', user.email);
-        })
-        .catch(error => alert(error.message))
-    }
+        
+          createUserWithEmailAndPassword(auth, email, password)
+          .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log('Registered with:', user.email);
+          })
+          .catch(error => alert(error.message))
+      }
   
     const handleLogin = () => {
       auth
