@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { EventRegister } from 'react-native-event-listeners';
+import AsyncStorage  from '@react-native-async-storage/async-storage';
 //Import the themes
 import themeContext from './app/config/themeContext';
 import theme from './app/config/theme';
@@ -28,7 +29,22 @@ const Stack = createNativeStackNavigator();
 const MyStack = () => {
 
   const [mode, setMode] = useState(false);
+  const [isFirstLaunch, setIsFirstLaunch] = React.useState(null);
 
+
+  // useEffect(() => {
+  //   AsyncStorage.getItem('alreadyLaunched').then(value => {
+  //     if (value == null) {
+  //       AsyncStorage.setItem('alreadyLaunch', 'true');
+  //       setIsFirstLaunch(true)
+  //     } else {
+  //       setIsFirstLaunch(false)
+  //     }
+  //   })
+  // }, []);
+  // if (isFirstLaunch == null) {
+  //   return null
+  // } 
   useEffect(() => {
     let eventListener = EventRegister.addEventListener(
       'changeTheme', 

@@ -49,6 +49,7 @@ const Tabs = () => {
                     elevation: 0,
                     backgroundColor: theme.primary,
                     height: '13%',
+                    padding: 0,
                     ...styles.shadow
                 }
             }}
@@ -66,7 +67,7 @@ const Tabs = () => {
             headerShown: false
             }}
             />
-            <Tab.Screen name="News" 
+            {/* <Tab.Screen name="News" 
             component={NewsScreen} 
             options={{tabBarIcon: ({focused, size}) => (
                 <>
@@ -78,13 +79,13 @@ const Tabs = () => {
             ),
             headerShown: false
             }}
-            />
+            /> */}
             <Tab.Screen name="Profile" component={SettingsScreen} options={{
                 tabBarIcon:({focused}) => (
                     <>
                     <MaterialCommunityIcons name='account-cog' color={ theme.background } size={30} style={styles.iconS}/>
                     <Text
-                style={{marginLeft: -40, marginTop: 10, color: theme.background, fontSize: 12}}
+                style={{marginLeft: -10, marginTop: 10, color: theme.background, fontSize: 12}}
                 >SETTINGS</Text>
                 </>
                 ),
@@ -99,9 +100,10 @@ const Tabs = () => {
             <Tab.Screen name="Notifications" 
             component={NotificationScreen} 
             options={{
+                tabBarBadge: 1,
                 tabBarIcon: ({focused, size}) => (
                     <>
-                    <MaterialCommunityIcons name='bell-outline' color={theme.background} size={25} style={styles.icon} />
+                    <MaterialCommunityIcons name='bell-outline' color={theme.background} size={30} style={styles.icon} />
                     <Text
                     style={{marginTop: 10, color: theme.background, fontSize: 12}}
                     >REQUESTS</Text>
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     },
     iconS:{
         marginTop: 23,
-        marginLeft: -40 
+        marginLeft: -10 
     }
 
 })

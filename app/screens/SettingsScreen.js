@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import { View, StyleSheet, TouchableOpacity, Dimensions, Switch } from 'react-native';
 import AppText from '../components/AppText';
 import { EventRegister } from 'react-native-event-listeners';
@@ -7,21 +7,10 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const SettingsScreen = ({ navigation }) => {
 
-
   const theme = useContext(themeContext);
 
   const[mode, setMode] = useState(false);
 
-  const [imageUri, setImageUri] = useState();
-    const requestPermission = async () => {
-        const { granted } =  await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if(!granted)
-            alert('You need to enable permission to access libarary')
-    }
-    useEffect(() =>{
-        requestPermission();
-    },[])
- 
   return (
 <>
     {/* Settings Header */}
@@ -46,7 +35,7 @@ const SettingsScreen = ({ navigation }) => {
         <AppText style={[styles.account, {color:theme.color}]}>Preferences</AppText>
         <View style={styles.accountRow}>
             <View style={[styles.profileAccount, {backgroundColor: theme.green}]}>
-              <Icon name='bell' size={40}/>
+              <Icon name='bell' size={25}/>
             </View>
             <View style={styles.nameC}>
             <AppText style={[styles.notificationText, {color: theme.color}]}>Notifications</AppText>
@@ -61,7 +50,7 @@ const SettingsScreen = ({ navigation }) => {
     <View style={[styles.container, {backgroundColor: theme.background}]}>
       <View style={styles.darkModeRow}>
         <View style={[styles.darkMode, {backgroundColor: theme.green}]}>
-          <Icon name='account' size={40}/>
+          <Icon name='moon-waning-crescent' size={25}/>
         </View>
           <View style={styles.darkModeToggle}>
             <AppText style={[styles.darkModeText, {color: theme.color}]}>Dark Mode</AppText>
@@ -74,7 +63,7 @@ const SettingsScreen = ({ navigation }) => {
       </View>
 
       {/* LOGOUT BUTTON */}
-        <View style={styles.logout}>
+        <View>
           <TouchableOpacity style={[styles.logout, {backgroundColor: theme.background},
             {borderColor: theme.error}]} onPress={() => 
                           navigation.navigate('Login')}>
@@ -93,6 +82,7 @@ const SettingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
+    alignContent: 'center',
   },
   edit:{
     marginTop: 15,
@@ -122,6 +112,7 @@ const styles = StyleSheet.create({
  darkModeRow:{
   flex: 1,
   flexDirection: 'row',
+  alignContent: 'center',
   justifyContent:'space-evenly',
   marginLeft: '10%',
   marginTop: '5%',
@@ -145,7 +136,7 @@ const styles = StyleSheet.create({
     marginTop: '-50%',
     marginBottom: '30%',
     width: '75%',
-    height: '30%',
+    height: '40%',
     justifyContent: 'center',
     alignItems:'center',
     borderRadius: 25,
@@ -188,7 +179,8 @@ darkMode:{
   width: 50,
   height: 50,
   borderRadius: 50,
-  alignItems: 'center',
+  justifyContent: 'center',
+  alignItems:'center',
   marginLeft: '9%'
 }
 
