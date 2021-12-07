@@ -102,11 +102,11 @@ const MyStack = () => {
             component={DescriptionScreen}
             options={{headerShown: false}}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{headerShown: false}}
-          />
+          /> */}
         <Stack.Screen
             name="NUScreen"
             component={NonUrgentScreen}
