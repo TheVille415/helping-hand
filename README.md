@@ -20,7 +20,7 @@ We designed Helping Hand to connect volunteers and professionals to people in th
 
 First clone our repo by using 
 ```
-$ git clone [GIT REPO HERE]
+$ git clone https://github.com/TheVille415/helping-hand.git
 ```
 Then make sure you have Expo and Xcode installed on your local device. 
 If you don't have either installed you can install them by clicking these links:
@@ -41,7 +41,7 @@ $ npm start
 
 ### App Status
 
-As of 7/12/21, We have made some large updates! We now have a working frontend for both users and volunteers. We have also implemented our complete onboarding flow for new users. We have added functionality for firebase to connect to our backend and we have an initial implementation of WebSockets.
+As of 7/12/21, we have made some large updates! We now have a working frontend for both users and volunteers. We have also implemented our complete onboarding flow for new users. We have added functionality for firebase to connect to our backend and we have an initial implementation of WebSockets.
 
 Our next steps are to work on the further implementation of our Firebase backend. This will allow us to get a smoother working sign-in and sign-out page. We also are going to push on populating our population with our dynamic request management system via WebSockets. 
 
