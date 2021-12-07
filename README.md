@@ -5,7 +5,7 @@
 
 ![Project cover image](https://i.postimg.cc/htgLYsy8/Helping-Hand-logos.jpg)
 
-### Who We Are - can insert emojis later? -
+### Who We Are
 - We started this journey with one goal: to help our communities.
 
 ## An App built to help you serve the community in any way you want 
@@ -19,9 +19,9 @@ We designed Helping Hand to connect volunteers and professionals to people in th
 ### Using our app with Expo on your local device
 
 First clone our repo by using 
-'''
+```
 $ git clone [GIT REPO HERE]
-'''
+```
 Then make sure you have Expo and Xcode installed on your local device. 
 If you don't have either installed you can install them by clicking these links:
 Expo [here](https://docs.expo.dev/get-started/installation/)
@@ -29,13 +29,13 @@ Xcode [here](https://developer.apple.com/xcode/)
 
 ### Running the app
 Once you have expo installed and our repo downloaded you can run these commands to install the needed dependencies:
-'''
+```
 $ npm install
-'''
+```
 After that's done to start the app run
-'''
+```
 $ npm start
-'''
+```
 
 ### App Status
 
