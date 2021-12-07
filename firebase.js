@@ -1,7 +1,7 @@
 import * as firebase from '@firebase/app';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signOut, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 // Add the Firebase products that you want to use
 
 
@@ -35,4 +35,4 @@ signOut(auth).then(() => {
   // An error happened.
 });
 
-export { auth, createUserWithEmailAndPassword}
+export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword}

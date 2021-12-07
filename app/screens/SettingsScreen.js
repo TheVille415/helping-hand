@@ -16,7 +16,7 @@ const SettingsScreen = ({ navigation }) => {
     const requestPermission = async () => {
         const { granted } =  await ImagePicker.requestMediaLibraryPermissionsAsync();
         if(!granted)
-            alert('You need to enable permission to access libarary')
+            alert('You need to enable permission to access library')
     }
     useEffect(() =>{
         requestPermission();

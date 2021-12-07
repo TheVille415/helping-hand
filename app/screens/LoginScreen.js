@@ -10,7 +10,7 @@ import themeContext from '../config/themeContext';
 import { authAsync } from 'expo-app-auth';
 import { useNavigation } from '@react-navigation/core'
 import { auth } from '../../firebase'
-import { createUserWithEmailAndPassword } from '../../firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../../firebase';
 require("firebase/auth");
 console.log(auth)
 
@@ -58,7 +58,7 @@ const LoginScreen = () => {
       const unsubscribe = auth.onAuthStateChanged(user => {
         if (user) {
             console.log("if user loginscreen.js")
-          navigation.replace("Home")
+          navigation.replace("VHome")
         }
       })
   
@@ -77,7 +77,7 @@ const LoginScreen = () => {
   
     const handleLogin = () => {
       auth
-        .signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password)
         .then(userCredentials => {
           const user = userCredentials.user;
           console.log('Logged in with:', user.email);

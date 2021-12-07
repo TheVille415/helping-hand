@@ -1,31 +1,80 @@
-import React, {useContext} from 'react';
-import { View, StyleSheet,Text } from 'react-native';
-import themeContext from '../config/themeContext';
-// import Animated from 'react-native-reanimated';
+import React, { Component } from 'react';
 
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button
+} from 'react-native';
 
-// bs = React.createRef();
-// fall = new Animated.Value(1);
+export default class App extends React.Component {
 
-function NotificationScreen(props) {
+    constructor() {
+        super();
 
-  const theme = useContext(themeContext);
-return (
-  <View style={[styles.container, {backgroundColor: theme.background}]}>
-      <Text style={[styles.text, {color: theme.color}]}>REQUESTS</Text>
-  </View>
-  );
+        this.state = {
+            open: false
+        };
+        this.socket = new WebSocket('wss://echo.websocket.org/');
+        this.emit = this.emit.bind(this);
+    }
+
+    emit() {
+        this.setState(prevState => ({
+            open: !prevState.open
+        }))
+        this.socket.send("It worked!")
+    }
+
+    componentDidMount() {
+        this.socket.onopen = () => this.socket.send(JSON.stringify({type: 'greet', payload: 'Hello Mr. Server!'}));
+        this.socket.onmessage = ({data}) => console.log(data);
+    }
+
+    render() {
+
+        const LED = {
+            backgroundColor: this.state.open
+            ? 'lightgreen'
+            : 'red',
+            height: 30,
+            position: 'absolute',
+            flexDirection: 'row',
+            bottom: 0,
+            width: 100,
+            height: 100,
+            top: 120,
+            borderRadius: 40,
+            justifyContent: 'space-between'
+        }
+
+        return (
+            <View style={styles.container}>
+                <Button onPress={this.emit} title={this.state.open
+        ? "Turn off"
+        : "Turn on"} color="#21ba45" accessibilityLabel="Learn more about this purple button"/>
+                <View style={LED}></View>
+            </View>
+        );
+    }
 }
+
 
 const styles = StyleSheet.create({
-  container:{
-    flex: 1
-  },
-  text:{
-    display: 'flex',
-    marginTop: '50%',
-    marginLeft: '40%'
-}
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF'
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5
+    }
 });
-
-export default NotificationScreen;
