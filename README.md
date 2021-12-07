@@ -3,7 +3,7 @@
 ## Serving the community in any way you want
 
 
-![Project cover image](https://i.postimg.cc/htgLYsy8/Helping-Hand-logos.jpg)
+<img src="https://i.postimg.cc/htgLYsy8/Helping-Hand-logos.jpg" alt="Helping Hand logo"  width="550" height="550">
 
 ### Who We Are
 - We started this journey with one goal: to help our communities.
