@@ -17,15 +17,15 @@ return (
       <View style={[styles.profileAccount, {backgroundColor: theme.green}]}>
         <Icon name='account' size={40}/>
       </View>
-      <AppText style={styles.profileText}>Brian253</AppText>
+      <AppText style={[styles.profileText, {color: theme.color}]}>Brian253</AppText>
       {/* ESTIMATED TIME COLUMN */}
       <View style={styles.column}>
-        <AppText style={styles.eta}>ETA</AppText>
-        <AppText style={styles.time}>6-9 min</AppText>
+        <AppText style={[styles.eta, {color: theme.color}]}>ETA</AppText>
+        <AppText style={[styles.time, {color: theme.color}]}>6-9 min</AppText>
       </View>
       {/* END OF ROW */}
     </View>
-    <AppText style={styles.requestText}>Got car broken into and need someone to wait with me while I wait for the police to show up</AppText>
+    <AppText style={[styles.requestText, {color: theme.color}]}>Got car broken into and need someone to wait with me while I wait for the police to show up</AppText>
     <AppButton 
       title="Accept" 
       style={[styles.request, {backgroundColor: theme.primary}]}
@@ -34,12 +34,12 @@ return (
       />
       <AppButton 
       title="Skip" 
-      style={[styles.decline, {borderColor: theme.error}]}
+      style={[styles.decline, {backgroundColor: theme.error}, {color: theme.color}]}
       onPress={() => 
          navigation.navigate('SignUp')}
       />
 
-    <View style={{borderBottomColor: theme.black, borderBottomWidth: 1}}>
+    <View style={{borderBottomColor: theme.color, borderBottomWidth: 1, marginTop: '5%'}}>
 
     </View>
   </View>
@@ -103,6 +103,7 @@ decline:{
   width: '25%',
   alignItems: 'center',
   marginLeft: '70%',
+  marginTop:'3%',
   borderRadius: 7
 }
 });
