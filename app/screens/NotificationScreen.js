@@ -30,13 +30,13 @@ return (
       title="Accept" 
       style={[styles.request, {backgroundColor: theme.primary}]}
       onPress={() => 
-         navigation.navigate('SignUp')}
+         navigation.navigate('VHome')}
       />
       <AppButton 
       title="Skip" 
       style={[styles.decline, {backgroundColor: theme.error}, {color: theme.color}]}
       onPress={() => 
-         navigation.navigate('SignUp')}
+         navigation.navigate('VHome')}
       />
 
     <View style={{borderBottomColor: theme.color, borderBottomWidth: 1, marginTop: '5%'}}>
