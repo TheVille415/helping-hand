@@ -21,6 +21,7 @@ import DescriptionScreen from './app/screens/Users/DescriptionScreen';
 import HomeScreen from './app/screens/Users/HomeScreen';
 import UserLoginScreen from './app/screens/Users/UserLoginScreen';
 import NonUrgentScreen from './app/screens/Users/NonUrgentScreen';
+import OnboardingScreen from './app/screens/OnboardingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,11 @@ const MyStack = () => {
     <themeContext.Provider value={mode === true ? theme.dark : theme.light}>
       <NavigationContainer> 
         <Stack.Navigator>
+          <Stack.Screen
+            name="Onboard"
+            component={OnboardingScreen}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
@@ -100,11 +106,6 @@ const MyStack = () => {
           <Stack.Screen
             name="Description"
             component={DescriptionScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
             options={{headerShown: false}}
           />
         <Stack.Screen
