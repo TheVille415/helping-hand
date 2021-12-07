@@ -24,8 +24,9 @@ $ git clone [GIT REPO HERE]
 ```
 Then make sure you have Expo and Xcode installed on your local device. 
 If you don't have either installed you can install them by clicking these links:
-Expo [here](https://docs.expo.dev/get-started/installation/)
-Xcode [here](https://developer.apple.com/xcode/)
+
+Expo Download [here](https://docs.expo.dev/get-started/installation/)
+Xcode Downlaod [here](https://developer.apple.com/xcode/)
 
 ### Running the app
 Once you have expo installed and our repo downloaded you can run these commands to install the needed dependencies:
